@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+android:id="@+id/home_fragment"
+    tools:context=".ui.home.HomeFragment"
+    android:background="#81C784">
+
+    <LinearLayout
+        android:layout_width="347dp"
+        android:layout_height="424dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:alpha="0.99"
+        android:backgroundTint="#5ABA45"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/roundedbox_background"
+        app:layout_constraintVertical_bias="0.345">
+       <ScrollView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
+        <TextView
+            android:textColor="#140B0B"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/h_f_ecd"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#140B0B"
+            android:text="@string/Product_type"
+            android:textSize="25sp" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/producttype_spinner"
+            android:spinnerMode="dropdown"
+
+            android:background="@drawable/roundedbox_background"
+           />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/Brand"
+            android:textColor="#140B0B"
+            android:textSize="25sp" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/brandtype_spinner"
+            android:spinnerMode="dropdown"
+            android:background="@drawable/roundedbox_background"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
+            android:textColor="#140B0B"
+            android:text="@string/User_Lifespan"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="2 Year"
+            android:maxEms="5"
+            android:background="@drawable/roundedbox_background"
+            />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Expiry Years"
+                   android:layout_marginLeft="4dp"
+                   android:layout_marginTop="10dp"
+                   android:textColor="#140B0B"
+                   android:textSize="25sp"/>
+               <EditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="enter"
+                   android:maxEms="5"
+                   android:inputType="numberDecimal"
+                   android:id="@+id/expiryyear"
+                   android:background="@drawable/roundedbox_background"
+                   />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Condition"
+                   android:layout_marginLeft="4dp"
+                   android:layout_marginTop="10dp"
+                   android:textColor="#140B0B"
+                   android:textSize="25sp"/>
+               <EditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="enter"
+                   android:maxEms="20"
+                   android:id="@+id/condition"
+                   android:inputType="textShortMessage"
+                   android:background="@drawable/roundedbox_background"/>
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Original Price"
+                   android:layout_marginLeft="4dp"
+                   android:layout_marginTop="10dp"
+                   android:textColor="#140B0B"
+                   android:textSize="25sp"/>
+               <EditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:inputType="numberDecimal"
+                   android:id="@+id/originalprice"
+                   android:maxEms="10"
+                   android:hint="10000"
+                   android:background="@drawable/roundedbox_background"/>
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Used Duration"
+                   android:layout_marginLeft="4dp"
+                   android:layout_marginTop="10dp"
+                   android:textColor="#140B0B"
+                   android:textSize="25sp"/>
+               <EditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="1"
+                   android:id="@+id/usedduration"
+                   android:inputType="numberDecimal"
+                   android:maxEms="3"
+                   android:background="@drawable/roundedbox_background"/>
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0B890C"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+              android:id="@+id/predictbtn"
+            android:onClick="showpricepopup"
+            android:text="@string/h_f_pp"
+            android:textSize="30sp" />
+
+               <!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="4dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginRight="4dp"-->
+<!--            android:background="#fff"-->
+<!--            android:maxEms="20"-->
+<!--            android:shadowColor="#50BD2A"-->
+<!--            android:textSize="25sp" />-->
+           </LinearLayout>
+       </ScrollView>
+    </LinearLayout>
+
+
+
+
+
+
+<!--    bottom navigation view-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/home_bottom_navigation"
+        android:orientation="horizontal"
+        android:background="#0F7A03">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/mainbl"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/main1bl"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/homeimg"
+                    android:background="@drawable/roundbackground_bn"
+
+                    android:layout_weight="1"
+
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/house_01"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="Home"
+                    android:textColor="#100D0D"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/main2bl"
+               android:layout_weight="1">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/stackimg"
+                    android:layout_weight="1"
+                    android:contentDescription="Open Stack Fragment"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/layers"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="Stack"
+                    android:contentDescription="Open Stack Fragment"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:textColor="#100D0D"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/main3bl"
+                android:layout_weight="1"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/historyimg"
+                    android:layout_weight="1"
+                    android:contentDescription="Open Stack Fragment"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="gohistory"
+                    android:src="@drawable/historyiconwhite"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="History"
+                    android:textColor="#100D0D"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

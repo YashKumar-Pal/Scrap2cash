@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#81C784"
+    tools:context=".ui.recycleright.recyclerightFragment">
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:background="#81C784">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/title"
+                android:text="Recycle Right"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Section: Why Recycling Matters -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="🌍 Why Recycling Matters"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Recycling helps conserve natural resources, reduce pollution, and minimize landfill waste. It’s a key step toward a sustainable future."
+                android:textSize="16sp"
+                android:textColor="#0B0808"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Section: What Can Be Recycled -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="♻️ What Can Be Recycled"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="• Paper and cardboard\n• Plastic bottles and containers (check symbols)\n• Glass jars and bottles\n• Metal cans and foil\n• E-waste like phones, laptops, and batteries"
+                android:textSize="16sp"
+                android:textColor="#0B0808"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Section: Common Mistakes to Avoid -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="⚠️ Common Mistakes to Avoid"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="• Throwing dirty containers into recycling\n• Mixing hazardous waste with recyclables\n• Recycling non-recyclable plastics (like wrappers)\n• Including broken glass or ceramics"
+                android:textSize="16sp"
+                android:textColor="#0B0800"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Section: Tips for Recycling Right -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="✅ Tips for Recycling Right"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="• Rinse containers before recycling\n• Check local recycling guidelines\n• Separate e-waste from regular recyclables\n• Use drop-off centers for batteries and electronics\n• Label bins clearly to avoid confusion"
+                android:textSize="16sp"
+                android:textColor="#0B0808"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Section: E-Waste Recycling -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="🔌 E-Waste Recycling"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#0B0808"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="E-waste contains valuable metals and toxic materials. Always recycle through certified e-waste centers. Never throw electronics in regular bins."
+                android:textSize="16sp"
+                android:textColor="#0B0808"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Section: How Scrap2Cash Helps -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="📱 How Scrap2Cash Helps"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Scrap2Cash connects users with verified recyclers, educates on proper disposal, and rewards responsible recycling. Together, we make sustainability simple."
+                android:textSize="16sp"
+                android:textColor="#0B0808"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Footer -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Let’s recycle right and build a cleaner, greener future. 🌱"
+                android:textSize="14sp"
+                android:textColor="#0B0808"
+                android:layout_marginTop="16dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

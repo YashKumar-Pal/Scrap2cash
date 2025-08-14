@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.scrap2cash.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_1"
+        android:name="com.example.scrap2cash.ui.whatisewaste.whatisewasteFragment"
+        android:label="@string/menu_7"
+        tools:layout="@layout/fragment_whatisewaste" />
+
+    <fragment
+        android:id="@+id/nav_2"
+        android:name="com.example.scrap2cash.ui.ewasteinnumber.ewasteinnumberFragment"
+        android:label="@string/menu_1"
+        tools:layout="@layout/fragment_ewasteinnumber" />
+    <fragment
+        android:id="@+id/nav_3"
+        android:name="com.example.scrap2cash.ui.waystoreuse.waystoreuseFragment"
+        android:label="@string/menu_2"
+        tools:layout="@layout/fragment_waystoreuse" />
+    <fragment
+        android:id="@+id/nav_4"
+        android:name="com.example.scrap2cash.ui.recycleright.recyclerightFragment"
+        android:label="@string/menu_3"
+        tools:layout="@layout/fragment_recycleright" />
+
+    <fragment
+        android:id="@+id/nav_5"
+        android:name="com.example.scrap2cash.ui.ecotips.ecotipsfragment"
+        android:label="@string/menu_5"
+        tools:layout="@layout/fragment_ecotips" />
+
+    <fragment
+        android:id="@+id/nav_6"
+        android:name="com.example.scrap2cash.ui.findarecycler.findarecyclerFragment"
+        android:label="@string/menu_6"
+        tools:layout="@layout/fragment_findarecycler" />
+
+
+</navigation>

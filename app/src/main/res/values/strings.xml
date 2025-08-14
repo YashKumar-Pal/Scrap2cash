@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Scrap2Cash</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">User name</string>
+    <string name="nav_gmail">G-mail</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_rateus">Rate Us</string>
+    <string name="action_setting">Setting</string>
+    <string name="action_share">Share</string>
+    <string name="action_feedback">Feedback</string>
+    <string name="action_home">this home is ok</string>
+    <string name="action_whatisewaste">this fragment is what is e-waste</string>
+    <string name="action_ewasteinnumber">this fragment is e-waste in number</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_7">What Is E-Waste?</string>
+    <string name="menu_1">E-Waste in Numbers</string>
+    <string name="menu_2">Ways to Reuse</string>
+    <string name="menu_3">Recycle Right</string>
+    <string name="menu_4">How to Recycle</string>
+    <string name="menu_5">Eco Tips</string>
+    <string name="menu_6">Find a Recycler</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="action_waystoreuse">this fragment is ways to reuse</string>
+    <string name="action_recycleright">this fragment is recycle right</string>
+    <string name="action_howtorecycle">this fragment is how to recycle</string>
+    <string name="action_ecotips">this fragment is eco tips</string>
+    <string name="action_findarecycler">this fragment is find a recycler</string>
+    <string name="h_f_ecd">Enter Circuit Detail</string>
+    <string name="Product_type">Product Type</string>
+    <string name="Brand">Brand</string>
+    <string name="User_Lifespan">User Lifespan</string>
+    <string name="h_f_pp">Predict Price</string>
+    <string name="f_whatisewastetextview1">Electronic waste, or e-waste, refers to all items of electrical and
+        electronic equipment (EEE) and its parts that have been discarded by its owner as waste without the
+        intent of re-use. E-waste is also referred to as WEEE (Waste Electrical and Electronic Equipment),
+        electronic waste or e-scrap in different regions and under different circumstances in the world.
+        It includes a wide range of products – almost any household or business item with circuitry or
+        electrical components with power or battery supply. The definition of e-waste is very broad and
+        covers six waste categories: </string>
+    <string name="f_whatisewastetextview2">Temperature exchange equipment, more commonly referred to as cooling
+        and freezing equipment. Typical equipment includes refrigerators, freezers, air conditioners, heat pumps.
+Screens, monitors. Typical equipment includes televisions, monitors, laptops, notebooks, and tablets.
+Lamps. Typical equipment includes fluorescent lamps, high intensity discharge lamps, and LED lamps.
+Large equipment. Typical equipment includes washing machines, clothes dryers, dish-washing machines, electric stoves, large printing machines, copying equipment, and photovoltaic panels.
+Small equipment. Typical equipment includes vacuum cleaners, microwaves, ventilation equipment, toasters, electric kettles, electric shavers, scales, calculators, radio sets, video cameras, electrical and electronic toys, small electrical and electronic tools, small medical devices, small monitoring and control instruments.
+Small IT and telecommunication equipment. Typical equipment includes mobile phones, Global Positioning Systems (GPS), pocket calculators, routers, personal computers, printers, telephones.
+</string>
+    <string name="f_a_r_specialstring">Type: Car Scrap &amp; Recycling</string>
+    <string name="f_a_r_specialstring2">Type: E-waste &amp; General Recycling</string>
+    <string name="e_t_specialstring1">☕ Kitchen &amp; Food</string>
+    <string name="e_t_specialstring3">🧺 Laundry &amp; Cleaning</string>
+    <string name="e_t_specialstring2">🔌 Energy &amp; Appliances</string>
+    <string name="e_t_specialstring4">💼 Lifestyle &amp; Finance</string>
+</resources>

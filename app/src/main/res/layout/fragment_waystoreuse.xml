@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#81C784"
+    tools:context=".ui.waystoreuse.waystoreuseFragment">
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:background="#81C784"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/title"
+                android:text="Ways to Reuse E-Waste"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Description -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/description"
+                android:text="Reusing e-waste helps reduce pollution, conserve resources, and extend the life of electronics. Here are some smart ways to reuse old devices:"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Reuse Tips -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tips"
+                android:text="• Repurpose old smartphones as security cameras 📱\n\n• Use outdated tablets as digital photo frames 🖼️\n\n• Convert old laptops into media servers 💻\n\n• Donate working electronics to schools or NGOs 🎁\n\n• Salvage parts for DIY electronics projects 🔧\n\n• Turn broken devices into art or décor 🎨"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Footer Note -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/footer"
+                android:text=" NOTE:-   Before reusing, ensure the device is safe and data is wiped. Responsible reuse supports a circular economy and reduces e-waste."
+                android:textSize="14sp"
+                android:textColor="#000000"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+
+                <!-- Title -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title2"
+                    android:text=" More Ways to Reuse E-Waste"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Tip 1 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🖼️ DIY Electronic Art\nUse old circuit boards and wires to create wall art or LED sculptures."
+                    android:textSize="16sp"
+                    android:textColor="#1B1414"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Tip 2 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="📷 Repurpose Old Smartphones\nTurn them into security cameras, music players, or smart remotes."
+                    android:textSize="16sp"
+                    android:textColor="#1B1414"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Tip 3 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="💻 Transform Laptops into Media Servers\nInstall Linux and use for streaming or file storage."
+                    android:textSize="16sp"
+                    android:textColor="#1B1414"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Tip 4 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🎮 Convert Tablets into Digital Frames\nDisplay photos or install retro games for entertainment."
+                    android:textSize="16sp"
+                    android:textColor="#1B1414"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Tip 5 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🎁 Donate Usable Devices\nGive old electronics to NGOs or schools to help others and reduce waste."
+                    android:textSize="16sp"
+                    android:textColor="#1B1414"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Tip 6 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🔧 Salvage Components for DIY Projects\nExtract motors, LEDs, and sensors for robotics or experiments."
+                    android:textSize="16sp"
+                    android:textColor="#1B1414"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Tip 7 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🗂️ Create Learning Tools\nUse old keyboards and circuits for educational models and typing practice."
+                    android:textSize="16sp"
+                    android:textColor="#1B1414"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Tip 8 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🧠 Build Interactive Science Models\nMake buzzers, timers, or simple robots using e-waste parts."
+                    android:textSize="16sp"
+                    android:textColor="#1B1414"
+                    android:layout_marginBottom="12dp"/>
+
+
+                <!-- Section: Repurpose Devices -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="📱 Repurpose Old Devices"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Give new life to old smartphones, tablets, and laptops by converting them into useful tools."
+                    android:textSize="16sp"
+                    android:textColor="#1B1414"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Use smartphones as security cameras or music players\n• Convert tablets into digital photo frames\n• Turn laptops into media servers or coding practice machines"
+                    android:textSize="16sp"
+                    android:textColor="#1B1414"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Section: Donate Usable Electronics -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🎁 Donate Usable Electronics"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Working devices can be donated to schools, NGOs, or community centers to help others and reduce waste."
+                    android:textSize="16sp"
+                    android:textColor="#1B1414"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Section: Salvage Components -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🔧 Salvage Components for DIY Projects"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Extract useful parts like motors, LEDs, and sensors from broken devices for robotics or electronics experiments."
+                    android:textSize="16sp"
+                    android:textColor="#1B1414"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Section: Educational Use -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🧠 Educational Use"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Use old keyboards, circuit boards, and screens for teaching electronics, typing practice, or science models."
+                    android:textSize="16sp"
+                    android:textColor="#1B1414"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Section: Creative Projects -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🎨 Creative Projects"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Make art, décor, or functional items using e-waste materials like wires, chips, and circuit boards."
+                    android:textSize="16sp"
+                    android:textColor="#1B1414"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Wall art from circuit boards\n• LED sculptures\n• Jewelry from chips and wires"
+                    android:textSize="16sp"
+                    android:textColor="#1B1414"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Footer -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="⚠️ Always wipe personal data and check safety before reuse. Responsible reuse supports sustainability and reduces e-waste pollution."
+                    android:textSize="14sp"
+                    android:textColor="#050303"
+                    android:layout_marginTop="16dp"/>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

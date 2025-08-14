@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ecotips.ecotipsfragment"
+    android:background="#81C784">
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+       >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 🌿 Daily Eco Habits -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌿 Daily Eco Habits"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#388E3C"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Morning Routine -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="☀️ Morning Routine" android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Use a bamboo toothbrush instead of plastic." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Turn off the tap while brushing or shaving." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Take shorter showers and install low-flow showerheads." />
+
+            <!-- Kitchen & Food -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/e_t_specialstring1"
+                android:textColor="#160E0E"
+                android:textStyle="bold" android:layout_marginTop="8dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Brew coffee at home using a French press or reusable filter." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Avoid disposable cups—carry a thermal mug." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Plan meals to reduce food waste and compost scraps." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Choose local, seasonal produce to cut down transport emissions." />
+
+            <!-- Commuting -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="🚶‍♀️ Commuting" android:textStyle="bold" android:layout_marginTop="8dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Walk, bike, or carpool instead of driving solo." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Use public transport to reduce your carbon footprint." />
+
+            <!-- 🏡 Home Improvements -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏡 Home Improvements"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#1976D2"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Energy & Appliances -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="@string/e_t_specialstring2"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Switch to LED lighting throughout your home." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Buy energy-efficient appliances with high star ratings." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Unplug devices when not in use to avoid phantom power." />
+
+            <!-- Renewable Energy -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="🌞 Renewable Energy" android:textStyle="bold" android:layout_marginTop="8dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Install solar panels or subscribe to green energy plans." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Use solar water heaters to reduce electricity consumption." />
+
+            <!-- Laundry & Cleaning -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="@string/e_t_specialstring3" android:textStyle="bold" android:layout_marginTop="8dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Wash clothes less often and in cold water." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Air dry clothes instead of using a dryer." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Make DIY cleaners using vinegar, baking soda, and lemon." />
+
+            <!-- 💼 Lifestyle & Finance -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/e_t_specialstring4"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#F57C00"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Conscious Consumption -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="💳 Conscious Consumption" android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Apply the 30-day rule before buying non-essentials." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Buy second-hand or refurbished electronics and clothes." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Switch to ethical banks or pension providers that don’t invest in fossil fuels." />
+
+            <!-- Eco Tourism -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="🌍 Eco Tourism" android:textStyle="bold" android:layout_marginTop="8dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Limit air travel and choose eco-certified accommodations." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#160E0E"
+                android:text="• Offset your carbon footprint when flying." />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

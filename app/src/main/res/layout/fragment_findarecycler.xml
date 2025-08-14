@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#81C784"
+    tools:context=".ui.findarecycler.findarecyclerFragment">
+
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Recycler In Delhi"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:textStyle="bold"/>
+
+            <!-- Bharat Recycling Pvt Ltd -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="@android:color/white"
+                android:elevation="4dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#E0F7FA">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bharat Recycling Pvt Ltd"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#00796B" />
+
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="@string/f_a_r_specialstring2" />
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Address: 119/1 Gali No. 19, North Ghonda" />
+                <TextView
+                    android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                android:text="Hours: Open till 5:30 PM" />
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rating: ⭐ 4.8 (17 reviews)"
+                    android:textColor="#160E0E"/>
+            </LinearLayout>
+
+            <!-- CRUSH CARS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="@android:color/white"
+                android:elevation="4dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#FFF3E0">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CRUSH CARS"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#E65100" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="@string/f_a_r_specialstring" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Address: HB Twin Tower, Netaji Subhash Place, Pitampura" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Hours: Open till 7 PM" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Rating: ⭐ 5.0 (500 reviews)" />
+            </LinearLayout>
+
+            <!-- Green-O-Tech India -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="@android:color/white"
+                android:elevation="4dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#E8F5E9">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Green-O-Tech India™"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#2E7D32" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Type: Paper Recycling" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Address: Raghu Nagar, Dabri" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Hours: Opens 9:30 AM Mon" />
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Rating: ⭐ 4.5 (85 reviews)" />
+            </LinearLayout>
+
+            <!-- New India Network -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="@android:color/white"
+                android:elevation="4dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#F3E5F5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New India Network"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#6A1B9A" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Type: E-waste" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Address: Nehru Place" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Hours: Opens 10 AM Mon" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Rating: ⭐ 5.0 (16 reviews)" />
+            </LinearLayout>
+
+            <!-- E-Waste Recyclers India -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="@android:color/white"
+                android:elevation="4dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#FFEBEE">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="E-Waste Recyclers India"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#C62828" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Type: E-waste" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Address: Okhla Phase I" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Hours: Opens 12 AM Mon" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Rating: ⭐ 4.0 (33 reviews)" />
+            </LinearLayout>
+
+            <!-- JAAGRUTI Waste Paper Recycling -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="@android:color/white"
+                android:elevation="4dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#E3F2FD">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="JAAGRUTI Waste Paper Recycling"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#1565C0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Type: Paper Recycling" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Address: Mansarover Garden" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Hours: Open till 6 PM" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Rating: ⭐ 4.0 (9 reviews)" />
+            </LinearLayout>
+
+            <!-- Scrapcardelhi-car Scrap Dealer -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="@android:color/white"
+                android:elevation="4dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#FFFDE7">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Scrapcardelhi-car Scrap Dealer"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#FBC02D" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Type: Car Scrap" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Address: Anand Parbat Industrial Area" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Hours: Open till 7 PM" />
+                <TextView
+                    android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Rating: ⭐ 4.9 (96 reviews)" />
+            </LinearLayout>
+
+            <!-- E-Waste Recycling in India -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="@android:color/white"
+                android:elevation="4dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#F1F8E9">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="E-Waste Recycling in India"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#558B2F" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Type: E-waste" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Address: Preet Vihar" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Hours: Opens 10 AM Mon" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Rating: ⭐ 5.0 (3 reviews)" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

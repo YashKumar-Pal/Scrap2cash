@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#81C784"
+    tools:context=".ui.whatisewaste.whatisewasteFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:background="#81C784"
+       >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/title"
+                android:text="What is E-Waste?"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Intro Paragraph -->
+            <TextView
+                android:id="@+id/intro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E-waste refers to discarded electronic devices such as phones, computers, and appliances. These items often contain hazardous materials and valuable components that can be recycled."
+                android:textSize="16sp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="#140E0E"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Bullet Points -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bullets"
+                android:text="• Common e-waste items include:\n   - Mobile phones\n   - Laptops\n   - Batteries\n   - Televisions\n\n• Why recycle e-waste?\n   - Prevent environmental pollution\n   - Recover valuable metals\n   - Promote sustainability"
+                android:textSize="16sp"
+                android:textColor="#1B1212"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Image (Optional) -->
+            <ImageView
+                android:id="@+id/eWasteImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/e_wasteimg"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Footer Note -->
+            <TextView
+                android:id="@+id/footer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/f_whatisewastetextview1"
+                android:textSize="14sp"
+                android:textColor="#1A1414"/>
+            <ImageView
+                android:id="@+id/eWasteImage2"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/ewasteimg2"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="16dp"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/typesofit"
+                android:textColor="#090707"
+                android:text="@string/f_whatisewastetextview2"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+            <ImageView
+                android:id="@+id/eWasteImage3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ewasteimg3"
+                android:scaleType="centerCrop"
+                android:layout_weight="1"
+                android:layout_marginBottom="16dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/eWasteImage4"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:src="@drawable/ewasteimg4"
+                android:scaleType="centerCrop"
+                android:layout_weight="1"
+                android:layout_marginRight="4dp"
+                android:layout_marginBottom="16dp"/>
+            <ImageView
+                android:id="@+id/eWasteImage5"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:src="@drawable/ewasteimg5"
+                android:layout_marginLeft="4dp"
+                android:scaleType="centerCrop"
+                android:layout_weight="1"
+                android:layout_marginBottom="16dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
