@@ -35,9 +35,9 @@ EcoApp helps users find nearby e-waste recycling centers and predicts reuse valu
 
 
 ## 👨‍💻 Contributors
-|        Name       |             Role                    || 
-| Yash Kumar Pal    | Backend, Git Setup, AI Integration  || 
-| Ayush Sharma      | UI/UX, AI Model                     ||
-|Bhavesh Sharma     | Content, Sustainability Tips, helper|| 
+||        Name       |             Role                    || 
+|| Yash Kumar Pal    | Backend, Git Setup, AI Integration  || 
+|| Ayush Sharma      | UI/UX, AI Model                     ||
+||Bhavesh Sharma     | Content, Sustainability Tips, helper|| 
 
    
