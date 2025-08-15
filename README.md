@@ -1,4 +1,4 @@
-# ♻️ EcoApp — E-Waste Reuse & Prediction
+# ♻️ Scrap2Cash — E-Waste Reuse & Prediction
 
 EcoApp helps users find nearby e-waste recycling centers and predicts reuse value using AI. Built with Android, it promotes sustainability through smart tech.
 
