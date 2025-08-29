@@ -21,6 +21,10 @@
     <string name="menu_4">How to Recycle</string>
     <string name="menu_5">Eco Tips</string>
     <string name="menu_6">Find a Recycler</string>
+    <string name="menu_11">Share</string>
+    <string name="menu_8">Setting</string>
+    <string name="menu_9">Rate Us</string>
+    <string name="menu_10">Feedback</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="action_waystoreuse">this fragment is ways to reuse</string>
     <string name="action_recycleright">this fragment is recycle right</string>

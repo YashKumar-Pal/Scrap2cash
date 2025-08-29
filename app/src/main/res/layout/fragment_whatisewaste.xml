@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#81C784"
-    tools:context=".ui.whatisewaste.whatisewasteFragment">
+    tools:context=".ui.whatisewaste.whatisewasteFragment"
+ >
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
-        android:background="#81C784"
+        android:background="@drawable/fragmentroundbackground_bn"
        >
         <LinearLayout
             android:layout_width="match_parent"

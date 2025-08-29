@@ -46,6 +46,28 @@
             android:title="@string/menu_6"
             android:icon="@drawable/find_icon"
             />
+        <item
+            android:id="@+id/nav_7"
+            android:title="@string/menu_8"
+            android:icon="@drawable/setting_svgrepo_com"
+            />
+        <item
+            android:id="@+id/nav_8"
+            android:title="@string/menu_9"
+            android:icon="@drawable/rate_us_svgrepo_com"
+            />
+        <item
+            android:id="@+id/nav_9"
+            android:title="@string/menu_10"
+            android:icon="@drawable/feedback_svgrepo_com"
+            />
+        <item
+            android:id="@+id/nav_10"
+            android:title="@string/menu_11"
+            android:icon="@drawable/share_nodes_svgrepo_com"
+            />
+
+
 
 
     </group>

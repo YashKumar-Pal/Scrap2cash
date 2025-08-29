@@ -8,20 +8,39 @@ android:id="@+id/home_fragment"
     tools:context=".ui.home.HomeFragment"
     android:background="@drawable/fragmentroundbackground_bn">
 
-
-    <!--    bottom navigation view-->
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="371dp"
-        android:layout_height="465dp"
-        android:layout_marginTop="72dp"
-        android:backgroundTint="#5ABA45"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/predictbtn"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <!--    bottom navigation view-->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginTop="72dp"
+                android:backgroundTint="#5ABA45"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_gravity="top"
+                app:layout_constraintBottom_toTopOf="@+id/predictbtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -178,8 +197,6 @@ android:id="@+id/home_fragment"
                                 android:maxEms="3" />
 
 
-
-
                             <!--        <EditText-->
                             <!--            android:layout_width="match_parent"-->
                             <!--            android:layout_height="wrap_content"-->
@@ -195,129 +212,139 @@ android:id="@+id/home_fragment"
                 </LinearLayout>
 
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/predictbtn"
-        android:layout_width="247dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="76dp"
-        android:background="@drawable/roundedbox_background"
-        android:backgroundTint="#0B890C"
-        android:onClick="showpricepopup"
-        android:text="@string/h_f_pp"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/home_bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:id="@+id/home_bottom_navigation"
-        android:orientation="horizontal"
-        android:background="#0F7A03">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:id="@+id/mainbl"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:id="@+id/main1bl"
-                android:layout_weight="1">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/homeimg"
-                    android:background="@drawable/bottomnvimg_bn"
-
-                    android:layout_weight="1"
-
-                    android:layout_marginRight="30dp"
-                    android:layout_marginLeft="30dp"
-                    android:src="@drawable/house_01"
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center"
-                    android:text="Home"
-                    android:textColor="#100D0D"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:id="@+id/main2bl"
-               android:layout_weight="1">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/stackimg"
-                    android:layout_weight="1"
-                    android:contentDescription="Open Stack Fragment"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:src="@drawable/layers"
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center"
-                    android:text="Stack"
-                    android:contentDescription="Open Stack Fragment"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:textColor="#100D0D"
-                    android:textStyle="bold" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:id="@+id/main3bl"
-                android:layout_weight="1"
-                >
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/historyimg"
-                    android:layout_weight="1"
-                    android:contentDescription="Open Stack Fragment"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:onClick="gohistory"
-                    android:src="@drawable/historyiconwhite"
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center"
-                    android:text="History"
-                    android:textColor="#100D0D"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/predictbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/roundedbox_background"
+                android:backgroundTint="#0B890C"
+                android:text="@string/h_f_pp"
+                android:textSize="30sp" />
 
         </LinearLayout>
+    </ScrollView>
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/home_bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#0F7A03"
+                android:elevation="0dp"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/mainbl"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/main1bl"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/homeimg"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="30dp"
+
+                            android:layout_marginRight="30dp"
+
+                            android:layout_weight="1"
+                            android:background="@drawable/bottomnvimg_bn"
+                            android:src="@drawable/house_01" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:text="Home"
+                            android:textColor="#100D0D"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/main2bl"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/stackimg"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:contentDescription="Open Stack Fragment"
+                            android:focusable="true"
+                            android:src="@drawable/layers" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:clickable="true"
+                            android:contentDescription="Open Stack Fragment"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:text="Stack"
+                            android:textColor="#100D0D"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/main3bl"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/historyimg"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:contentDescription="Open Stack Fragment"
+                            android:focusable="true"
+                            android:onClick="gohistory"
+                            android:src="@drawable/historyiconwhite" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:text="History"
+                            android:textColor="#100D0D"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

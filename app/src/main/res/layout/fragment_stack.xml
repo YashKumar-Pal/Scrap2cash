@@ -7,9 +7,11 @@
     android:id="@+id/stack_fragment"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.stack.stackfragment">
+
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
         android:padding="16dp">
 
         <LinearLayout
@@ -22,13 +24,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="15dp"
+                android:background="#fff"
                 app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:background="#fff"
                     android:padding="16dp">
 
                     <TextView
@@ -46,7 +50,7 @@
                         android:layout_height="wrap_content"
                         android:text="Company: HP"
                         android:textSize="16sp"
-                        android:textColor="#444444"
+                        android:textColor="#2F2D2D"
                         android:layout_marginTop="4dp" />
 
                     <TextView
@@ -80,13 +84,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="15dp"
+                android:background="#fff"
                 app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:background="#fff"
                     android:padding="16dp">
 
                     <TextView
@@ -100,7 +106,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
-                        android:textColor="#444444"
+                        android:textColor="#2F2D2D"
                         android:layout_marginTop="4dp"
                         android:text="Company: HP" />
                     <TextView
@@ -129,13 +135,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="15dp"
+                android:background="#fff"
                 app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:background="#fff"
                     android:padding="16dp">
 
                     <TextView
@@ -149,7 +157,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
-                        android:textColor="#444444"
+                        android:textColor="#2F2D2D"
                         android:layout_marginTop="4dp"
                         android:text="Company: Samsung" />
                     <TextView
@@ -178,13 +186,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="15dp"
+                android:background="#fff"
                 app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:background="#fff"
                     android:padding="16dp">
 
                     <TextView
@@ -198,7 +208,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
-                        android:textColor="#444444"
+                        android:textColor="#2F2D2D"
                         android:layout_marginTop="4dp"
                         android:text="Company: Canon" />
                     <TextView

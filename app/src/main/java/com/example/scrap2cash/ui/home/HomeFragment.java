@@ -10,10 +10,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -23,6 +27,7 @@ import com.example.scrap2cash.R;
 import com.example.scrap2cash.databinding.FragmentHomeBinding;
 import com.example.scrap2cash.ui.historyhome.historyhome;
 import com.example.scrap2cash.ui.stack.stackfragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,6 +40,7 @@ public class HomeFragment extends Fragment {
     Spinner Bspinner;
     ArrayList<String> arrproducttyp= new ArrayList<>();
     ArrayList<String> arrb=new ArrayList<>();
+    BottomNavigationView btmnv;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
