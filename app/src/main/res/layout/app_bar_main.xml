@@ -5,19 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#B0E0B3"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.Scrap2cash.AppBarOverlay">
-
+        android:layout_height="130dp"
+        android:theme="@style/Theme.Scrap2cash.AppBarOverlay"
+        android:background="#B0E0B3"
+        >
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#0F7A03"
-            app:popupTheme="@style/Theme.Scrap2cash.AppBarOverlay" />
+            android:layout_height="75dp"
+            android:background="@drawable/toolbar_bg"
+            android:gravity="center_vertical"
+            android:backgroundTint="#0F7A03"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+           android:layout_marginBottom="10dp"
+            android:layout_gravity="center_vertical"
+            app:popupTheme="@style/Theme.Scrap2cash.AppBarOverlay"
+            />
 
     </com.google.android.material.appbar.AppBarLayout>
 

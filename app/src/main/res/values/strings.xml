@@ -12,7 +12,8 @@
     <string name="action_home">this home is ok</string>
     <string name="action_whatisewaste">this fragment is what is e-waste</string>
     <string name="action_ewasteinnumber">this fragment is e-waste in number</string>
-    <string name="menu_home">Home</string>
+    <string name="menu_home">Scrap2Cash</string>
+    <string name="menu_home2">Home</string>
     <string name="menu_7">What Is E-Waste?</string>
     <string name="menu_1">E-Waste in Numbers</string>
     <string name="menu_2">Ways to Reuse</string>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#81C784"
+    android:background="@drawable/fragmentroundbackground_bn"
     android:id="@+id/stack_fragment"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.stack.stackfragment">
@@ -285,7 +285,7 @@
                     android:layout_weight="1"
                     android:layout_marginRight="30dp"
                     android:layout_marginLeft="30dp"
-                    android:background="@drawable/roundbackground_bn"
+                    android:background="@drawable/bottomnvimg_bn"
                     android:src="@drawable/layers"
                     />
 
