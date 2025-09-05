@@ -8,233 +8,266 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.stack.stackfragment">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fbtn"
+        android:layout_width="56dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="80dp"
+        android:backgroundTint="#fff"
+        android:clickable="true"
+        android:src="@drawable/add_round_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="16dp"
         android:layout_marginBottom="60dp"
-        android:padding="16dp">
-
+        app:layout_constraintBottom_toTopOf="@+id/home_bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/roundstackitem"
+            android:id="@+id/mainll">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!-- Repeat this CardView for each item -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="15dp"
-                android:background="#fff"
-                app:cardElevation="6dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#fff"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:id="@+id/itemName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Model: HP Pavilion"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:id="@+id/companyName2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Company: HP"
-                        android:textSize="16sp"
-                        android:textColor="#2F2D2D"
-                        android:layout_marginTop="4dp" />
-
-                    <TextView
-                        android:id="@+id/originalPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Original Price: ₹55,000"
-                        android:textSize="16sp"
-                        android:textColor="#FF6200EE"
-                        android:layout_marginTop="4dp" />
-
-                    <TextView
-                        android:id="@+id/usedPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Used Price: ₹32,000"
-                        android:textSize="16sp"
-                        android:textColor="#FF0000"
-                        android:layout_marginTop="4dp" />
-
-                    <CheckBox
-                        android:id="@+id/sellLater"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mark for future sale"
-                        android:layout_marginTop="8dp"
-                        android:textColor="#000000" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="15dp"
-                android:background="#fff"
-                app:cardElevation="6dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#fff"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Model: HP Pavilion"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="#2F2D2D"
-                        android:layout_marginTop="4dp"
-                        android:text="Company: HP" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="#FF6200EE"
-                        android:layout_marginTop="4dp"
-                        android:text="Original Price: ₹55,000" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="#FF0000"
-                        android:layout_marginTop="4dp"
-                        android:text="Used Price: ₹32,000" />
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mark for future sale" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Item 2 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="15dp"
-                android:background="#fff"
-                app:cardElevation="6dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#fff"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Model: Samsung Galaxy Tab S6"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="#2F2D2D"
-                        android:layout_marginTop="4dp"
-                        android:text="Company: Samsung" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="#FF6200EE"
-                        android:layout_marginTop="4dp"
-                        android:text="Original Price: ₹45,000" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="#FF0000"
-                        android:layout_marginTop="4dp"
-                        android:text="Used Price: ₹25,000" />
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mark for future sale" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Item 3 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="15dp"
-                android:background="#fff"
-                app:cardElevation="6dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#fff"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Model: Canon EOS 1500D"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="#2F2D2D"
-                        android:layout_marginTop="4dp"
-                        android:text="Company: Canon" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="#FF6200EE"
-                        android:layout_marginTop="4dp"
-                        android:text="Original Price: ₹38,000" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="#FF0000"
-                        android:layout_marginTop="4dp"
-                        android:text="Used Price: ₹20,000" />
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mark for future sale" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            android:clickable="true"
+            android:focusable="false"
+            android:descendantFocusability="blocksDescendants"
+            android:id="@+id/mainrecyclerview"/>
 
 
-            <!-- You can copy-paste this CardView block for more items -->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical">-->
 
+<!--                    &lt;!&ndash; Repeat this CardView for each item &ndash;&gt;-->
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginBottom="12dp"-->
+<!--                        app:cardCornerRadius="15dp"-->
+<!--                        android:background="#fff"-->
+<!--                        app:cardElevation="6dp">-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:background="#fff"-->
+<!--                            android:padding="16dp">-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/itemName"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Model: HP Pavilion"-->
+<!--                                android:textSize="18sp"-->
+<!--                                android:textStyle="bold"-->
+<!--                                android:textColor="#000000" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/companyName2"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Company: HP"-->
+<!--                                android:textSize="16sp"-->
+<!--                                android:textColor="#2F2D2D"-->
+<!--                                android:layout_marginTop="4dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/originalPrice"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Original Price: ₹55,000"-->
+<!--                                android:textSize="16sp"-->
+<!--                                android:textColor="#FF6200EE"-->
+<!--                                android:layout_marginTop="4dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/usedPrice"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Used Price: ₹32,000"-->
+<!--                                android:textSize="16sp"-->
+<!--                                android:textColor="#FF0000"-->
+<!--                                android:layout_marginTop="4dp" />-->
+
+<!--                            <CheckBox-->
+<!--                                android:id="@+id/sellLater"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Mark for future sale"-->
+<!--                                android:layout_marginTop="8dp"-->
+<!--                                android:textColor="#000000" />-->
+<!--                        </LinearLayout>-->
+<!--                    </androidx.cardview.widget.CardView>-->
+        <!--            <androidx.cardview.widget.CardView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginBottom="12dp"-->
+        <!--                app:cardCornerRadius="15dp"-->
+        <!--                android:background="#fff"-->
+        <!--                app:cardElevation="6dp">-->
+
+        <!--                <LinearLayout-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:orientation="vertical"-->
+        <!--                    android:background="#fff"-->
+        <!--                    android:padding="16dp">-->
+
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:text="Model: HP Pavilion"-->
+        <!--                        android:textSize="18sp"-->
+        <!--                        android:textStyle="bold"-->
+        <!--                        android:textColor="#000000"/>-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:textSize="16sp"-->
+        <!--                        android:textColor="#2F2D2D"-->
+        <!--                        android:layout_marginTop="4dp"-->
+        <!--                        android:text="Company: HP" />-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:textSize="16sp"-->
+        <!--                        android:textColor="#FF6200EE"-->
+        <!--                        android:layout_marginTop="4dp"-->
+        <!--                        android:text="Original Price: ₹55,000" />-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:textSize="16sp"-->
+        <!--                        android:textColor="#FF0000"-->
+        <!--                        android:layout_marginTop="4dp"-->
+        <!--                        android:text="Used Price: ₹32,000" />-->
+        <!--                    <CheckBox-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:text="Mark for future sale" />-->
+        <!--                </LinearLayout>-->
+        <!--            </androidx.cardview.widget.CardView>-->
+
+        <!--            &lt;!&ndash; Item 2 &ndash;&gt;-->
+        <!--            <androidx.cardview.widget.CardView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginBottom="12dp"-->
+        <!--                app:cardCornerRadius="15dp"-->
+        <!--                android:background="#fff"-->
+        <!--                app:cardElevation="6dp">-->
+
+        <!--                <LinearLayout-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:orientation="vertical"-->
+        <!--                    android:background="#fff"-->
+        <!--                    android:padding="16dp">-->
+
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:text="Model: Samsung Galaxy Tab S6"-->
+        <!--                        android:textSize="18sp"-->
+        <!--                        android:textStyle="bold"-->
+        <!--                        android:textColor="#000000"/>-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:textSize="16sp"-->
+        <!--                        android:textColor="#2F2D2D"-->
+        <!--                        android:layout_marginTop="4dp"-->
+        <!--                        android:text="Company: Samsung" />-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:textSize="16sp"-->
+        <!--                        android:textColor="#FF6200EE"-->
+        <!--                        android:layout_marginTop="4dp"-->
+        <!--                        android:text="Original Price: ₹45,000" />-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:textSize="16sp"-->
+        <!--                        android:textColor="#FF0000"-->
+        <!--                        android:layout_marginTop="4dp"-->
+        <!--                        android:text="Used Price: ₹25,000" />-->
+        <!--                    <CheckBox-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:text="Mark for future sale" />-->
+        <!--                </LinearLayout>-->
+        <!--            </androidx.cardview.widget.CardView>-->
+
+        <!--            &lt;!&ndash; Item 3 &ndash;&gt;-->
+        <!--            <androidx.cardview.widget.CardView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginBottom="12dp"-->
+        <!--                app:cardCornerRadius="15dp"-->
+        <!--                android:background="#fff"-->
+        <!--                app:cardElevation="6dp">-->
+
+        <!--                <LinearLayout-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:orientation="vertical"-->
+        <!--                    android:background="#fff"-->
+        <!--                    android:padding="16dp">-->
+
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:text="Model: Canon EOS 1500D"-->
+        <!--                        android:textSize="18sp"-->
+        <!--                        android:textStyle="bold"-->
+        <!--                        android:textColor="#000000"/>-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:textSize="16sp"-->
+        <!--                        android:textColor="#2F2D2D"-->
+        <!--                        android:layout_marginTop="4dp"-->
+        <!--                        android:text="Company: Canon" />-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:textSize="16sp"-->
+        <!--                        android:textColor="#FF6200EE"-->
+        <!--                        android:layout_marginTop="4dp"-->
+        <!--                        android:text="Original Price: ₹38,000" />-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:textSize="16sp"-->
+        <!--                        android:textColor="#FF0000"-->
+        <!--                        android:layout_marginTop="4dp"-->
+        <!--                        android:text="Used Price: ₹20,000" />-->
+        <!--                    <CheckBox-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:text="Mark for future sale" />-->
+        <!--                </LinearLayout>-->
+        <!--            </androidx.cardview.widget.CardView>-->
+
+
+        <!--            &lt;!&ndash; You can copy-paste this CardView block for more items &ndash;&gt;-->
+
+        <!--        </LinearLayout>-->
         </LinearLayout>
     </ScrollView>
 

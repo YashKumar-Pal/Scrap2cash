@@ -1,6 +1,7 @@
 package com.example.scrap2cash.ui.home;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -38,6 +39,7 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     Spinner ptspinner;
     Spinner Bspinner;
+    Button pp;
     ArrayList<String> arrproducttyp= new ArrayList<>();
     ArrayList<String> arrb=new ArrayList<>();
     BottomNavigationView btmnv;
@@ -55,7 +57,8 @@ public class HomeFragment extends Fragment {
 
         ptspinner = binding.producttypeSpinner;
         Bspinner= binding.brandtypeSpinner;
-  arrproducttyp.add("Laptop");
+        pp=binding.predictbtn;
+        arrproducttyp.add("Laptop");
         arrproducttyp.add("Smartphone");
         arrproducttyp.add("TV");
         arrproducttyp.add("DSLR Camera");
@@ -158,10 +161,10 @@ public class HomeFragment extends Fragment {
                 // Optional
             }
         });
-
+        binding.predictbtn.setOnClickListener(v->showPricePopup());
         binding.stackimg.setOnClickListener(v -> openstackFragment());
         binding.historyimg.setOnClickListener(v -> openHistoryFragment());
-        binding.homeimg.setOnClickListener(v-> openHomeFragment());
+//        binding.homeimg.setOnClickListener(v-> openHomeFragment());
          return root;
 
     }
@@ -181,6 +184,7 @@ public class HomeFragment extends Fragment {
                     , new stackfragment());
             transaction.addToBackStack(null); // Optional: allows back navigation
             transaction.commit();
+
         }
     private void openHistoryFragment() {
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
@@ -196,20 +200,33 @@ public class HomeFragment extends Fragment {
         transaction.addToBackStack(null);
         transaction.commit();
     }
-
-    private void showPricePopup(String product, String brand, int price) {
+//    private void showPricePopup(String product, String brand, int price)
+    private void showPricePopup() {
         View popupView = LayoutInflater.from(requireContext()).inflate(R.layout.result_popup, null);
-        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-        builder.setView(popupView);
-        AlertDialog dialog = builder.create();
+//        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+//        builder.setView(popupView);
+//        AlertDialog dialog = builder.create();
+        Dialog dialog=new Dialog(requireContext());
+        dialog.setContentView(R.layout.result_popup);
+        int width = LinearLayout.LayoutParams.MATCH_PARENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        dialog.getWindow().setLayout(width, height);
         dialog.show();
 
-        TextView title = popupView.findViewById(R.id.result_title);
-        TextView message = popupView.findViewById(R.id.result_message);
+        dialog.findViewById(R.id.das).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+
+//        TextView title = popupView.findViewById(R.id.result_title);
+//        TextView message = popupView.findViewById(R.id.result_message);
 //        Button closeBtn = popupView.findViewById(R.id.close_button);
 
-        title.setText("Predicted Price");
-        message.setText("Product: " + product + "\nBrand: " + brand + "\nEstimated Price: ₹" + price);
+//        title.setText("Predicted Price");
+//        message.setText("Product: " + product + "\nBrand: " + brand + "\nEstimated Price: ₹" + price);
 //        closeBtn.setOnClickListener(v -> dialog.dismiss());
     }
 

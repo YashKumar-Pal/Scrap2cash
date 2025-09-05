@@ -40,7 +40,7 @@
                 android:layout_marginEnd="16dp"
                 android:src="@drawable/user_image_account_box_24"
                 android:scaleType="centerCrop"
-                android:background="@android:color/transparent"/>
+                android:background="@drawable/roundedlogin"/>
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
