@@ -353,7 +353,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/historyimg"
                     android:layout_weight="1"
-                    android:src="@drawable/historyiconwhite"
+                    android:src="@drawable/user_circle"
                     />
 
                 <TextView
@@ -361,7 +361,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:gravity="center"
-                    android:text="History"
+                    android:text="Account"
                     android:textColor="#100D0D"
                     android:textStyle="bold" />
             </LinearLayout>

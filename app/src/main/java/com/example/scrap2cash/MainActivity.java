@@ -68,17 +68,17 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
         ImageView profileIcon = findViewById(R.id.profile_icon);
 
-        profileIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Your action here
-                Toast.makeText(getApplicationContext(), "Profile clicked!", Toast.LENGTH_SHORT).show();
-
-                // Example: Open a new activity
-                Intent intent = new Intent(MainActivity.this, loginedit .class);
-                startActivity(intent);
-            }
-        });
+//        profileIcon.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Your action here
+//                Toast.makeText(getApplicationContext(), "Profile clicked!", Toast.LENGTH_SHORT).show();
+//
+//                // Example: Open a new activity
+//                Intent intent = new Intent(MainActivity.this, loginedit .class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
 //    @Override

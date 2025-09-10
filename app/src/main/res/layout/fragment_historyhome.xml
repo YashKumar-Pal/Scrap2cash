@@ -7,6 +7,94 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.historyhome.historyhome">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#49A436"
+                app:cardCornerRadius="10dp"
+                android:padding="5dp"
+                app:cardElevation="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:alpha="0.99"
+                    android:padding="24dp">
+                    <!-- Profile Image -->
+                    <ImageView
+                        android:id="@+id/profileImage"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center"
+                        android:alpha="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/user_circle" />
+
+                    <!-- Change Image Text -->
+                    <TextView
+                        android:id="@+id/changeImageText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingTop="8dp"
+                        android:text="Change Profile Picture"
+                        android:textColor="@color/purple_500" />
+
+                    <!-- Name Field -->
+                    <EditText
+                        android:id="@+id/nameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:background="@drawable/roundedbox_background"
+                        android:hint="Your Name"
+                        android:inputType="textPersonName"
+                        android:textColor="#000"
+                        android:textColorHint="#403C3C"
+                        android:textSize="20sp" />
+
+                    <!-- Email Field -->
+                    <EditText
+                        android:id="@+id/emailEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/roundedbox_background"
+                        android:hint="Your Email"
+                        android:inputType="textEmailAddress"
+                        android:textColor="#000"
+                        android:textColorHint="#403C3C"
+                        android:textSize="20sp" />
+
+                    <!-- Save Button -->
+                    <Button
+                        android:id="@+id/saveButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:background="@drawable/add_itemround"
+                        android:text="Save"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -92,7 +180,7 @@
                     android:layout_marginRight="30dp"
                     android:layout_marginLeft="30dp"
                     android:background="@drawable/bottomnvimg_bn"
-                    android:src="@drawable/historyiconwhite"
+                    android:src="@drawable/user_circle"
                     />
 
                 <TextView
@@ -100,7 +188,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:gravity="center"
-                    android:text="History"
+                    android:text="Account"
                     android:textColor="#100D0D"
                     android:textStyle="bold" />
             </LinearLayout>
