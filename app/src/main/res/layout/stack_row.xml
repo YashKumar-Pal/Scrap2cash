@@ -59,7 +59,7 @@
                     android:id="@+id/companyName1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Company:"
+                    android:text="Brand:"
                     android:textSize="16sp"
                     android:textColor="#2F2D2D"
                     android:layout_marginTop="4dp" />
@@ -101,7 +101,7 @@
                     android:id="@+id/usedPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Used Price: ₹"
+                    android:text="Current Price: ₹"
                     android:textSize="16sp"
                     android:textColor="#FF0000"
                     android:layout_marginTop="4dp" />

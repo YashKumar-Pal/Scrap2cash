@@ -52,7 +52,7 @@
 
             android:backgroundTint="#fff"
             android:background="@drawable/roundededittext"
-            android:hint="Enter Company Name"
+            android:hint="Enter Brand Name"
             android:textSize="30sp" />
         <EditText
             android:id="@+id/oprice"

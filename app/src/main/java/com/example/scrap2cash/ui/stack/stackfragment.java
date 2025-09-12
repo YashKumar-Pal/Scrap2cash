@@ -1,6 +1,9 @@
 package com.example.scrap2cash.ui.stack;
 
+import static android.app.Activity.RESULT_OK;
 import static android.content.Context.NOTIFICATION_SERVICE;
+
+import androidx.core.content.FileProvider;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -25,6 +28,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,10 +48,15 @@ import com.example.scrap2cash.stackmodel;
 import com.example.scrap2cash.ui.historyhome.historyhome;
 import com.example.scrap2cash.ui.home.HomeFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.io.File;
 import java.util.ArrayList;
 
 
 public class stackfragment extends Fragment {
+    Uri fimg;
+    private static final int REQUEST_IMAGE = 100;
+    private Uri cameraImageUri;
     private static final String CHHANEL_ID = "My Channel";
     private static final int NOTIFICATION_ID = 100;
     private StackViewModel mViewModel;
@@ -61,18 +71,56 @@ public class stackfragment extends Fragment {
     Uri imageUri;
     ImageView itemimg;
     Uri setimageUri;
+    String fmodel;
+    String fcompany;
+    String foriginal;
+    String fused;
     int setimageint;
 //
     @FunctionalInterface
     public interface ImagePickCallback {
         void onRequestImagePick(ImageView targetImageView, int position);
     }
-    //    main function
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getParentFragmentManager().setFragmentResultListener("datakey", this,(key,bundle)-> {
+            fimg=bundle.getParcelable("demo image");
+            fmodel=bundle.getString("Model");
+            fcompany=bundle.getString("Brand");
+            foriginal=bundle.getString("original price");
+            fused=bundle.getString("current");
+            if(fimg != null && fmodel!=null && fcompany!=null && foriginal!=null &&fused!=null){
+                if(arrstack==null)arrstack=new ArrayList<>();
+                arrstack.add(new stackmodel(fimg,fmodel,fcompany,foriginal,fused,false));
+                adapter.notifyItemInserted(arrstack.size() - 1);
+                recyclerview.scrollToPosition(arrstack.size() - 1);}
+            else {
+                Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+        //    main function
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentStackBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+//        getParentFragmentManager().setFragmentResultListener("datakey", this,(key,bundle)-> {
+//            fimg=bundle.getParcelable("demo image");
+//            fmodel=bundle.getString("Model");
+//            fcompany=bundle.getString("Brand");
+//            foriginal=bundle.getString("original price");
+//            fused=bundle.getString("current");
+//            if(fimg != null && fmodel!=null && fcompany!=null && foriginal!=null &&fused!=null){
+//                if(arrstack==null)arrstack=new ArrayList<>();
+//                arrstack.add(new stackmodel(fimg,fmodel,fcompany,foriginal,fused,false));
+//                adapter.notifyItemInserted(arrstack.size() - 1);
+//                recyclerview.scrollToPosition(arrstack.size() - 1);}
+//            else {
+//                Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 //        recycler view grap hua
         recyclerview = binding.mainrecyclerview;
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -144,9 +192,18 @@ public class stackfragment extends Fragment {
                 itemimgd.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        intent.setType("image/*");
-                        startActivityForResult(intent, IMAGE_PICK_CODE);
+                        Intent cameraintent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        File imageFile = new File(requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES),
+                                "camera_image_" + System.currentTimeMillis() + ".jpg");
+
+                        cameraImageUri = FileProvider.getUriForFile(requireContext(),
+                                "com.example.scrap2cash.fileprovider", imageFile);
+                        cameraintent.putExtra(MediaStore.EXTRA_OUTPUT, cameraImageUri);
+                        Intent galleryintent= new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        galleryintent.setType("image/*");
+                        Intent chooser= Intent.createChooser(galleryintent,"Select Image");
+                        chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS,new Intent[]{cameraintent});
+                        startActivityForResult(chooser,REQUEST_IMAGE);
                     }
                 });
 //              add item pe click karne par
@@ -194,12 +251,13 @@ public class stackfragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == IMAGE_PICK_CODE && resultCode == Activity.RESULT_OK && data != null) {
-            imageUri = data.getData();
-            if (imageUri != null && itemimg != null) {
-                Glide.with(requireContext()).load(imageUri).into(itemimg);
+        if (requestCode == REQUEST_IMAGE && resultCode == RESULT_OK ) {
+            if (data == null|| data.getData()==null) {
+                imageUri=cameraImageUri;}
+            else{
+                imageUri=data.getData();
             }
+            Glide.with(requireContext()).load(imageUri).into(itemimg);
         }
     }
     //stack ke view model class ko use karne ke liye
@@ -273,9 +331,18 @@ public class stackfragment extends Fragment {
             @Override
             public void onClick(View v) {
                 setimageint=0;
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                intent.setType("image/*");
-                startActivityForResult(intent, IMAGE_PICK_CODE);
+                Intent cameraintent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                File imageFile = new File(requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES),
+                        "camera_image_" + System.currentTimeMillis() + ".jpg");
+
+                cameraImageUri = FileProvider.getUriForFile(requireContext(),
+                        "com.example.scrap2cash.fileprovider", imageFile);
+                cameraintent.putExtra(MediaStore.EXTRA_OUTPUT, cameraImageUri);
+                Intent galleryintent= new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                galleryintent.setType("image/*");
+                Intent chooser= Intent.createChooser(galleryintent,"Select Image");
+                chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS,new Intent[]{cameraintent});
+                startActivityForResult(chooser,REQUEST_IMAGE);
             }
         });
 // recycler view main dialog me button se update item karne ke liye

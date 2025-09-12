@@ -34,6 +34,7 @@
     <string name="h_f_ecd">Enter Circuit Detail</string>
     <string name="Product_type">Product Type</string>
     <string name="Brand">Brand</string>
+    <string name="modeln">Model </string>
     <string name="User_Lifespan">User Lifespan</string>
     <string name="h_f_pp">Predict Price</string>
     <string name="f_whatisewastetextview1">Electronic waste, or e-waste, refers to all items of electrical and

@@ -1,9 +1,17 @@
 package com.example.scrap2cash.ui.home;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +24,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.FileProvider;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -23,19 +33,28 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
+import com.bumptech.glide.Glide;
 import com.example.scrap2cash.R;
 import com.example.scrap2cash.databinding.FragmentHomeBinding;
 import com.example.scrap2cash.ui.historyhome.historyhome;
 import com.example.scrap2cash.ui.stack.stackfragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
 public class HomeFragment extends Fragment {
+    private static final int REQUEST_IMAGE = 100;
+    private Uri cameraImageUri;
+    Uri imageUri;
+    ImageView selectimg;
     private FragmentHomeBinding binding;
     Spinner ptspinner;
     Spinner Bspinner;
@@ -51,10 +70,7 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-
-//       View view=inflater.inflate(R.layout.fragment_home, container, false);
-
+        selectimg=binding.selectimg;
         ptspinner = binding.producttypeSpinner;
         Bspinner= binding.brandtypeSpinner;
         pp=binding.predictbtn;
@@ -70,28 +86,21 @@ public class HomeFragment extends Fragment {
         arrproducttyp.add("Smartwatch");
         arrproducttyp.add("Gaming Console");
         arrproducttyp.add("Refrigerator");
-
-
         // Agar dynamic list chahiye:
         List<String> productTypes = Arrays.asList("Laptop", "Smartphone", "TV", "DSLR Camera", "Electric Scooter",
         "Air Conditioner" ,"Washing Machine" ,"Tablet" ,"Microwave", "Smartwatch",
         "Gaming Consol","Refrigerator");
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 requireContext(),
                 R.layout.spinner_selected_item,         // selected item layout
                 arrproducttyp                           // list of items
         );
-
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_items); // dropdown layout
         ptspinner.setAdapter(adapter);
         ptspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedType = parent.getItemAtPosition(position).toString();
-////                Toast.makeText(requireContext(), "Selected: " + selectedType, Toast.LENGTH_SHORT).show();
-//
-//
             }
 
             @Override
@@ -99,9 +108,6 @@ public class HomeFragment extends Fragment {
                 // Optional
             }
         });
-//
-//
-//        Bspinner=view.findViewById(R.id.brandtype_spinner);
         arrb.add("HP");
         ArrayList<String> arrb = new ArrayList<>();
         arrb.add("HP");
@@ -161,6 +167,24 @@ public class HomeFragment extends Fragment {
                 // Optional
             }
         });
+        selectimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cameraintent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                File imageFile = new File(requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES),
+                        "camera_image_" + System.currentTimeMillis() + ".jpg");
+
+                cameraImageUri = FileProvider.getUriForFile(requireContext(),
+                        "com.example.scrap2cash.fileprovider", imageFile);
+                cameraintent.putExtra(MediaStore.EXTRA_OUTPUT, cameraImageUri);
+                Intent galleryintent= new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                galleryintent.setType("image/*");
+                Intent chooser= Intent.createChooser(galleryintent,"Select Image");
+                chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS,new Intent[]{cameraintent});
+                startActivityForResult(chooser,REQUEST_IMAGE);;
+            }
+        });
+
         binding.predictbtn.setOnClickListener(v->showPricePopup());
         binding.stackimg.setOnClickListener(v -> openstackFragment());
         binding.historyimg.setOnClickListener(v -> openHistoryFragment());
@@ -168,16 +192,24 @@ public class HomeFragment extends Fragment {
          return root;
 
     }
-
-
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_IMAGE && resultCode == RESULT_OK ) {
+            if (data == null|| data.getData()==null) {
+                imageUri=cameraImageUri;}
+            else{
+                imageUri=data.getData();
+            }
+            Glide.with(requireContext()).load(imageUri).into(selectimg);
+        }
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
-
-
-        private void openstackFragment() {
+    private void openstackFragment() {
             FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.replace(R.id.nav_host_fragment_content_main
@@ -200,36 +232,39 @@ public class HomeFragment extends Fragment {
         transaction.addToBackStack(null);
         transaction.commit();
     }
-//    private void showPricePopup(String product, String brand, int price)
     private void showPricePopup() {
         View popupView = LayoutInflater.from(requireContext()).inflate(R.layout.result_popup, null);
 //        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
 //        builder.setView(popupView);
 //        AlertDialog dialog = builder.create();
-        Dialog dialog=new Dialog(requireContext());
+        Dialog dialog = new Dialog(requireContext());
         dialog.setContentView(R.layout.result_popup);
         int width = LinearLayout.LayoutParams.MATCH_PARENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         dialog.getWindow().setLayout(width, height);
         dialog.show();
-
         dialog.findViewById(R.id.das).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (imageUri!= null){
+                Bundle result = new Bundle();
+                result.putString("Model", "Aspire 14");
+                result.putString("Brand", "Acer");
+                result.putString("original price", "40000");
+                result.putString("current", "20000");
+                result.putParcelable("demo image", imageUri);
+
+                new Handler(Looper.getMainLooper()).postDelayed(() ->{
+                    getParentFragmentManager().setFragmentResult("datakey", result);
+                    FragmentTransaction transaction=requireActivity().getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.nav_host_fragment_content_main,new stackfragment());
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                        },300);
+
+                }
                 dialog.dismiss();
             }
         });
-
-
-//        TextView title = popupView.findViewById(R.id.result_title);
-//        TextView message = popupView.findViewById(R.id.result_message);
-//        Button closeBtn = popupView.findViewById(R.id.close_button);
-
-//        title.setText("Predicted Price");
-//        message.setText("Product: " + product + "\nBrand: " + brand + "\nEstimated Price: ₹" + price);
-//        closeBtn.setOnClickListener(v -> dialog.dismiss());
     }
-
-
-
 }

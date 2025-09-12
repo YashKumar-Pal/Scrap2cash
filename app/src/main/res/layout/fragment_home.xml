@@ -11,7 +11,7 @@ android:id="@+id/home_fragment"
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
         android:layout_weight="1"
         app:layout_constraintBottom_toTopOf="@id/predictbtn"
@@ -111,6 +111,23 @@ android:id="@+id/home_fragment"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/roundedbox_background"
                                 android:spinnerMode="dropdown" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/modeln"
+                                android:textColor="#140B0B"
+                                android:textSize="25sp" />
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/roundedbox_background"
+                                android:hint="enter"
+                                android:id="@+id/modelid"
+                                android:textColor="#000"
+                                android:textColorHint="#EBE2E2"
+                                android:maxEms="5" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -209,6 +226,26 @@ android:id="@+id/home_fragment"
                                 android:textColorHint="#EBE2E2"
                                 android:inputType="numberDecimal"
                                 android:maxEms="3" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:id="@+id/selectimgll"
+                                android:orientation="vertical"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_height="wrap_content">
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/selectimg"
+                                android:clickable="true"
+                                android:id="@+id/selectimg"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Click to Choose\n       image"
+                                    android:id="@+id/chooseimg"
+                                    android:textColor="#000"/>
+
+                            </LinearLayout>
 
 
                             <!--        <EditText-->

@@ -9,7 +9,11 @@
         android:id="@+id/nav_home"
         android:name="com.example.scrap2cash.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_stack"
+            app:destination="@id/stack_fragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_1"
@@ -49,6 +53,17 @@
         android:name="com.example.scrap2cash.ui.setting.Setting"
         android:label="Setting"
         tools:layout="@layout/fragment_setting"/>
+    <fragment
+        android:id="@+id/stack_fragment"
+        android:name="com.example.scrap2cash.ui.stack.stackfragment"
+        android:label="Stack"
+        tools:layout="@layout/fragment_stack"/>
+    <fragment
+        android:id="@+id/history_fragment"
+        android:name="com.example.scrap2cash.ui.historyhome.historyhome"
+        android:label="Account"
+        tools:layout="@layout/fragment_historyhome"/>
+
 
 
 </navigation>

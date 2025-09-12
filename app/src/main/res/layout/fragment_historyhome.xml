@@ -33,17 +33,31 @@
                     android:orientation="vertical"
                     android:alpha="0.99"
                     android:padding="24dp">
-                    <!-- Profile Image -->
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/profileImage"
-                        android:layout_width="120dp"
+                        android:layout_width="140dp"
                         android:layout_height="120dp"
-                        android:layout_gravity="center"
-                        android:alpha="1"
+                        android:src="@drawable/user_circle"
+                        android:background="@drawable/bottomnvimg_bn"
+                        android:layout_marginLeft="30dp"
+                        android:padding="5dp"
+                        android:layout_gravity="center_horizontal"
                         android:clickable="true"
+                        android:alpha="1"
                         android:focusable="true"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/user_circle" />
+                        android:layout_marginRight="30dp"
+                        app:shapeAppearanceOverlay="@style/RoundedImageView" />
+                    <!-- Profile Image -->
+<!--                    <ImageView-->
+<!--                        android:id="@+id/profileImage"-->
+<!--                        android:layout_width="120dp"-->
+<!--                        android:layout_height="120dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:alpha="1"-->
+<!--                        android:clickable="true"-->
+<!--                        android:focusable="true"-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:src="@drawable/user_circle" />-->
 
                     <!-- Change Image Text -->
                     <TextView
@@ -172,16 +186,27 @@
                 android:id="@+id/main3bl"
                 android:layout_weight="1"
                 >
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/historyimg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/historyimg"
-                    android:layout_weight="1"
-                    android:layout_marginRight="30dp"
-                    android:layout_marginLeft="30dp"
-                    android:background="@drawable/bottomnvimg_bn"
                     android:src="@drawable/user_circle"
-                    />
+                    android:background="@drawable/bottomnvimg_bn"
+                    android:layout_marginLeft="30dp"
+                    android:padding="5dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_weight="1"
+                    app:shapeAppearanceOverlay="@style/RoundedImageView" />
+<!--                <ImageView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:id="@+id/historyimg"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:layout_marginRight="30dp"-->
+<!--                    android:layout_marginLeft="30dp"-->
+<!--                    android:background="@drawable/bottomnvimg_bn"-->
+<!--                    android:src="@drawable/user_circle"-->
+<!--                    />-->
 
                 <TextView
                     android:layout_width="match_parent"
