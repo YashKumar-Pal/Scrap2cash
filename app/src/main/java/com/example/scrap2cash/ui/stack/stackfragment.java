@@ -43,6 +43,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.scrap2cash.R;
 import com.example.scrap2cash.RecyclerstackAdapter;
+import com.example.scrap2cash.StackDB;
 import com.example.scrap2cash.databinding.FragmentStackBinding;
 import com.example.scrap2cash.stackmodel;
 import com.example.scrap2cash.ui.historyhome.historyhome;
@@ -60,6 +61,7 @@ public class stackfragment extends Fragment {
     private static final String CHHANEL_ID = "My Channel";
     private static final int NOTIFICATION_ID = 100;
     private StackViewModel mViewModel;
+
     private FragmentStackBinding binding;
     RecyclerView recyclerview;
     FloatingActionButton fbtn;
@@ -76,6 +78,7 @@ public class stackfragment extends Fragment {
     String foriginal;
     String fused;
     int setimageint;
+    private StackDB stackDB;
 //
     @FunctionalInterface
     public interface ImagePickCallback {
@@ -125,6 +128,13 @@ public class stackfragment extends Fragment {
         recyclerview = binding.mainrecyclerview;
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         arrstack = new ArrayList<>();
+
+        stackDB = new StackDB(requireContext());
+        ArrayList<stackmodel> dbItems = stackDB.getAllScrap(); // DB se load kar rha hai
+        if (dbItems != null && !dbItems.isEmpty()) {
+            arrstack.clear();
+            arrstack.addAll(dbItems);
+        }
 //        sare element ko value mil rhi h runtime se pahle
         arrstack.add(new stackmodel(R.drawable.pavilion, "HP Pavilion", "HP", "55,000", "32,000", true));
         arrstack.add(new stackmodel(R.drawable.thinkpad, "ThinkPad", "Lenovo", "65,000", "45,000", true));
@@ -219,16 +229,19 @@ public class stackfragment extends Fragment {
                             usedprice.setError("Enter Used Price");
                         } else {
                             if (imageUri != null) {
-                                arrstack.add(new stackmodel(
+                                stackmodel newItem = new stackmodel(
                                         imageUri,
                                         modelname.getText().toString(),
                                         companyname.getText().toString(),
                                         originalprice.getText().toString(),
                                         usedprice.getText().toString(),
                                         false
-                                ));
+                                );
                                 adapter.notifyItemInserted(arrstack.size() - 1);
                                 recyclerview.scrollToPosition(arrstack.size() - 1);
+
+                                stackDB.insertScrap(newItem);
+
 //                                Toast.makeText(requireContext(), "Item Added", Toast.LENGTH_SHORT).show();
                                 nm.notify(NOTIFICATION_ID, notificationtc);
                                 dialog.dismiss();
@@ -362,11 +375,15 @@ public class stackfragment extends Fragment {
                     upricethis.setError("Enter Used Price");
                     return;}
                          if(setimageint==0){
+//                             update item for DB....
                              arrstack.get(position).imageUri = imageUri;
                              arrstack.get(position).model = updatedModel;
                              arrstack.get(position).company = updatedCompany;
                              arrstack.get(position).originalprice = updatedOPrice;
                              arrstack.get(position).usedprice = updatedUPrice;
+                             //  DB me update karna yahan
+                             stackDB.updateScrap(arrstack.get(position));
+
                              adapter.notifyItemChanged(position);
                              dialog.dismiss();
                          } else {
@@ -375,6 +392,8 @@ public class stackfragment extends Fragment {
                              arrstack.get(position).company = updatedCompany;
                              arrstack.get(position).originalprice = updatedOPrice;
                              arrstack.get(position).usedprice = updatedUPrice;
+                             //  DB me update karna yahan bhi
+                             stackDB.updateScrap(arrstack.get(position));
                          }
                         adapter.notifyItemChanged(position);
                         dialog.dismiss();;
