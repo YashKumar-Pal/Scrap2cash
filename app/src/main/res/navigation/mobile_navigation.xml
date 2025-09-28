@@ -53,6 +53,7 @@
         android:name="com.example.scrap2cash.ui.setting.Setting"
         android:label="Setting"
         tools:layout="@layout/fragment_setting"/>
+
     <fragment
         android:id="@+id/stack_fragment"
         android:name="com.example.scrap2cash.ui.stack.stackfragment"

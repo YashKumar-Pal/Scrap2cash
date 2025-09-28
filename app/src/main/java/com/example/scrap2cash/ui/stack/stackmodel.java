@@ -1,4 +1,4 @@
-package com.example.scrap2cash;
+package com.example.scrap2cash.ui.stack;
 
 import android.net.Uri;
 

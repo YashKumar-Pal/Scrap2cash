@@ -1,16 +1,11 @@
 package com.example.scrap2cash.ui.home;
 
 import static android.app.Activity.RESULT_OK;
-
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
-import android.os.Looper;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,37 +13,30 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
-
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
-
+//import androidx.lifecycle.ViewModelProvider;
 import com.bumptech.glide.Glide;
 import com.example.scrap2cash.R;
 import com.example.scrap2cash.databinding.FragmentHomeBinding;
 import com.example.scrap2cash.ui.historyhome.historyhome;
 import com.example.scrap2cash.ui.stack.stackfragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
+//import java.util.Arrays;
+//import java.util.List;
+
 
 public class HomeFragment extends Fragment {
     private static final int REQUEST_IMAGE = 100;
@@ -58,18 +46,22 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     Spinner ptspinner;
     Spinner Bspinner;
+    String selectbrand;
+    EditText model;
+    EditText originalprice;
     Button pp;
     ArrayList<String> arrproducttyp= new ArrayList<>();
     ArrayList<String> arrb=new ArrayList<>();
-    BottomNavigationView btmnv;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+//        HomeViewModel homeViewModel =
+//                new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        model=binding.modelid;
+        originalprice=binding.originalprice;
         selectimg=binding.selectimg;
         ptspinner = binding.producttypeSpinner;
         Bspinner= binding.brandtypeSpinner;
@@ -87,9 +79,9 @@ public class HomeFragment extends Fragment {
         arrproducttyp.add("Gaming Console");
         arrproducttyp.add("Refrigerator");
         // Agar dynamic list chahiye:
-        List<String> productTypes = Arrays.asList("Laptop", "Smartphone", "TV", "DSLR Camera", "Electric Scooter",
-        "Air Conditioner" ,"Washing Machine" ,"Tablet" ,"Microwave", "Smartwatch",
-        "Gaming Consol","Refrigerator");
+//        List<String> productTypes = Arrays.asList("Laptop", "Smartphone", "TV", "DSLR Camera", "Electric Scooter",
+//        "Air Conditioner" ,"Washing Machine" ,"Tablet" ,"Microwave", "Smartwatch",
+//        "Gaming Console","Refrigerator");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 requireContext(),
                 R.layout.spinner_selected_item,         // selected item layout
@@ -100,7 +92,7 @@ public class HomeFragment extends Fragment {
         ptspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedType = parent.getItemAtPosition(position).toString();
+//                String selectedType = parent.getItemAtPosition(position).toString();
             }
 
             @Override
@@ -155,16 +147,18 @@ public class HomeFragment extends Fragment {
         );
         adapter2.setDropDownViewResource(R.layout.spinner_dropdown_items); // dropdown layout
         Bspinner.setAdapter(adapter2);
+//        selectbrand=Bspinner.getSelectedItem().toString();
         Bspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedType = parent.getItemAtPosition(position).toString();
+                selectbrand=Bspinner.getSelectedItem().toString();
+//                String selectedType = parent.getItemAtPosition(position).toString();
               ////                Toast.makeText(requireContext(), "Selected: " + selectedType, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // Optional
+                Toast.makeText(getContext(), "Please Select Brand", Toast.LENGTH_SHORT).show();
             }
         });
         selectimg.setOnClickListener(new View.OnClickListener() {
@@ -181,7 +175,7 @@ public class HomeFragment extends Fragment {
                 galleryintent.setType("image/*");
                 Intent chooser= Intent.createChooser(galleryintent,"Select Image");
                 chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS,new Intent[]{cameraintent});
-                startActivityForResult(chooser,REQUEST_IMAGE);;
+                startActivityForResult(chooser,REQUEST_IMAGE);
             }
         });
 
@@ -246,22 +240,36 @@ public class HomeFragment extends Fragment {
         dialog.findViewById(R.id.das).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (imageUri!= null){
-                Bundle result = new Bundle();
-                result.putString("Model", "Aspire 14");
-                result.putString("Brand", "Acer");
-                result.putString("original price", "40000");
-                result.putString("current", "20000");
-                result.putParcelable("demo image", imageUri);
+                if ( model.getText().toString().isEmpty() && originalprice.getText().toString().isEmpty()){
+                    model.setError("Enter Model name");
+                    originalprice.setError("Enter Original Price");
+                }
+               else {
+                    if (imageUri != null) {
+                        Bundle result = new Bundle();
+                        result.putString("Model", model.getText().toString());
+                        result.putString("Brand", selectbrand);
+                        result.putString("original price", originalprice.getText().toString());
+                        result.putString("current", "20000");
+                        result.putParcelable("demo image", imageUri);
 
-                new Handler(Looper.getMainLooper()).postDelayed(() ->{
-                    getParentFragmentManager().setFragmentResult("datakey", result);
-                    FragmentTransaction transaction=requireActivity().getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment_content_main,new stackfragment());
-                    transaction.addToBackStack(null);
-                    transaction.commit();
-                        },300);
+// Navigate first
+//                        FragmentTransaction transaction = getParentFragmentManager()
+//                                .beginTransaction();
+//                        transaction.replace(R.id.nav_host_fragment_content_main, new stackfragment());
+//                        transaction.addToBackStack(null);
+//                        transaction.commit();
 
+// Set result AFTER commit
+                        getParentFragmentManager().setFragmentResult("datakey", result);
+                        NavController navController = NavHostFragment.findNavController(HomeFragment.this);
+                        navController.navigate(R.id.action_nav_home_to_nav_stack);
+
+//                        getParentFragmentManager().executePendingTransactions(); // ensures fragment is attached
+
+                    } else {
+                        Toast.makeText(requireContext(), "Please choose image", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 dialog.dismiss();
             }

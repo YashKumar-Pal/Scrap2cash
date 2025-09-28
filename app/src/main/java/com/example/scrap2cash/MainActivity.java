@@ -1,6 +1,8 @@
 package com.example.scrap2cash;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -41,8 +43,14 @@ public class MainActivity extends AppCompatActivity {
 //            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 //            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 //            window.setStatusBarColor(Color.TRANSPARENT); // Makes top bar transparent
-//        }
-
+//        }requirecontext this
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (this.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, 101);
+//             Stop here until permission is granted
+            }
+        }
 
         setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.toolbar.setBackground(ContextCompat.getDrawable(this, R.drawable.toolbar_bg));
@@ -60,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home,R.id.nav_1,R.id.nav_2,R.id.nav_3,R.id.nav_4,R.id.nav_5,R.id.nav_6)
+                R.id.nav_home,R.id.nav_1,R.id.nav_2,R.id.nav_3,R.id.nav_4,R.id.nav_5,R.id.nav_6, R.id.nav_7,R.id.nav_8, R.id.nav_9, R.id.nav_10/*,R.id.nav_11*/)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);

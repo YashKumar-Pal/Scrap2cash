@@ -1,4 +1,4 @@
-package com.example.scrap2cash;
+package com.example.scrap2cash.ui.stack;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -16,6 +16,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+import com.example.scrap2cash.R;
+
 import java.util.ArrayList;
 
 public class RecyclerstackAdapter extends RecyclerView.Adapter<RecyclerstackAdapter.ViewHolder> {
@@ -129,5 +131,9 @@ public class RecyclerstackAdapter extends RecyclerView.Adapter<RecyclerstackAdap
             v1.startAnimation(slideIn);
             lastposi = position;
         }
+    }
+    public void updateList(ArrayList<stackmodel> newList) {
+        this.arrstack = newList;
+        notifyDataSetChanged();
     }
 }

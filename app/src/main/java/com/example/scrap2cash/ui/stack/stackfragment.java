@@ -9,14 +9,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.Manifest;
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -42,10 +39,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.scrap2cash.R;
-import com.example.scrap2cash.RecyclerstackAdapter;
-import com.example.scrap2cash.StackDB;
 import com.example.scrap2cash.databinding.FragmentStackBinding;
-import com.example.scrap2cash.stackmodel;
 import com.example.scrap2cash.ui.historyhome.historyhome;
 import com.example.scrap2cash.ui.home.HomeFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -55,21 +49,18 @@ import java.util.ArrayList;
 
 
 public class stackfragment extends Fragment {
+    StackViewModel viewModel;
     Uri fimg;
     private static final int REQUEST_IMAGE = 100;
     private Uri cameraImageUri;
     private static final String CHHANEL_ID = "My Channel";
     private static final int NOTIFICATION_ID = 100;
     private StackViewModel mViewModel;
-
     private FragmentStackBinding binding;
     RecyclerView recyclerview;
     FloatingActionButton fbtn;
     ArrayList<stackmodel> arrstack;
     private RecyclerstackAdapter adapter;
-    private static final int IMAGE_PICK_CODE = 1001;
-    private static final int IMAGE_PICK_CODE_ADD = 1001; // For adding new item
-    private static final int IMAGE_PICK_CODE_UPDATE = 1002; // For updating item
     Uri imageUri;
     ImageView itemimg;
     Uri setimageUri;
@@ -79,90 +70,65 @@ public class stackfragment extends Fragment {
     String fused;
     int setimageint;
     private StackDB stackDB;
-//
-    @FunctionalInterface
-    public interface ImagePickCallback {
-        void onRequestImagePick(ImageView targetImageView, int position);
-    }
+//    for notification
+    NotificationManager nm;
+    Notification notificationtc;
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getParentFragmentManager().setFragmentResultListener("datakey", this,(key,bundle)-> {
-            fimg=bundle.getParcelable("demo image");
-            fmodel=bundle.getString("Model");
-            fcompany=bundle.getString("Brand");
-            foriginal=bundle.getString("original price");
-            fused=bundle.getString("current");
-            if(fimg != null && fmodel!=null && fcompany!=null && foriginal!=null &&fused!=null){
-                if(arrstack==null)arrstack=new ArrayList<>();
-                arrstack.add(new stackmodel(fimg,fmodel,fcompany,foriginal,fused,false));
-                adapter.notifyItemInserted(arrstack.size() - 1);
-                recyclerview.scrollToPosition(arrstack.size() - 1);}
-            else {
-                Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//
+//        getParentFragmentManager().setFragmentResultListener("datakey", getViewLifecycleOwner(), (key, bundle) -> {
+//            Uri fimg = bundle.getParcelable("demo image");
+//            String fmodel = bundle.getString("Model");
+//            String fcompany = bundle.getString("Brand");
+//            String foriginal = bundle.getString("original price");
+//            String fused = bundle.getString("current");
+//
+//            if (fimg != null && fmodel != null && fcompany != null && foriginal != null && fused != null) {
+//                stackmodel additem = new stackmodel(fimg, fmodel, fcompany, foriginal, fused, false);
+//                viewModel.addItem(additem, stackDB);
+//                nm.notify(NOTIFICATION_ID, notificationtc);
+//            } else {
+//                Toast.makeText(getContext(), "Error: Missing data", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//        viewModel.getScrapItems().observe(getViewLifecycleOwner(), list -> {
+//            adapter.updateList(list);
+//            recyclerview.scrollToPosition(arrstack.size() - 1);
+//        });
+//    }
+
         //    main function
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentStackBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-//        getParentFragmentManager().setFragmentResultListener("datakey", this,(key,bundle)-> {
-//            fimg=bundle.getParcelable("demo image");
-//            fmodel=bundle.getString("Model");
-//            fcompany=bundle.getString("Brand");
-//            foriginal=bundle.getString("original price");
-//            fused=bundle.getString("current");
-//            if(fimg != null && fmodel!=null && fcompany!=null && foriginal!=null &&fused!=null){
-//                if(arrstack==null)arrstack=new ArrayList<>();
-//                arrstack.add(new stackmodel(fimg,fmodel,fcompany,foriginal,fused,false));
-//                adapter.notifyItemInserted(arrstack.size() - 1);
-//                recyclerview.scrollToPosition(arrstack.size() - 1);}
-//            else {
-//                Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        recycler view grap hua
+        stackDB = new StackDB(requireContext());
+        viewModel= new ViewModelProvider(this).get(StackViewModel.class);
+        viewModel.loadItemsFromDB(stackDB);
         recyclerview = binding.mainrecyclerview;
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
-        arrstack = new ArrayList<>();
-
-        stackDB = new StackDB(requireContext());
-        ArrayList<stackmodel> dbItems = stackDB.getAllScrap(); // DB se load kar rha hai
-        if (dbItems != null && !dbItems.isEmpty()) {
-            arrstack.clear();
-            arrstack.addAll(dbItems);
-        }
-//        sare element ko value mil rhi h runtime se pahle
-        arrstack.add(new stackmodel(R.drawable.pavilion, "HP Pavilion", "HP", "55,000", "32,000", true));
-        arrstack.add(new stackmodel(R.drawable.thinkpad, "ThinkPad", "Lenovo", "65,000", "45,000", true));
-        arrstack.add(new stackmodel(R.drawable.samsungtab, "Tab S6", "Samsung", "45,000", "25,000", false));
-        arrstack.add(new stackmodel(R.drawable.canon, "EOS 1500D", "Canon", "38,000", "20,000", false));
 //        recycler view main item bind hone ke liye recycler adapter class call ho rhi h
+        arrstack = new ArrayList<>();
         adapter = new RecyclerstackAdapter(getContext(), arrstack, (model, position) -> {
 //            gallery se image pick ke lye function call ho rha h
             showUpdateDialog(model, position);
         });
 //        recycler view main element ko content de rha h
         recyclerview.setAdapter(adapter);
-//        new item add button
+        viewModel.getScrapItems().observe(getViewLifecycleOwner(), items -> {
+            adapter.updateList(items); // adapter mein method hona chahiye
+        });
+
+        //        new item add button
         fbtn = binding.fbtn;
-//        notification permission lene ke liye agar nhi mili ho to
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (requireContext().checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)
-                    != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, 101);
-//             Stop here until permission is granted
-            }
-        }
 //            drawable se notification main image set karne ke liye
         Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.info_icon2, null);
         BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
         Bitmap setLargeIcon2 = bitmapDrawable.getBitmap();
-        NotificationManager nm = (NotificationManager) requireContext().getSystemService(NOTIFICATION_SERVICE);
-        Notification notificationtc;
+        nm = (NotificationManager) requireContext().getSystemService(NOTIFICATION_SERVICE);
 //        notification set karne ke liye channel id se ki ne item add hua
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             notificationtc = new Notification.Builder(requireContext())
@@ -182,126 +148,78 @@ public class stackfragment extends Fragment {
                     .build();
         }
 //        add button pe click hone par
-        fbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Dialog dialog = new Dialog(requireContext());
-                dialog.setContentView(R.layout.add_item);
-                int width = LinearLayout.LayoutParams.MATCH_PARENT;
-                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-                dialog.getWindow().setLayout(width, height);
-                dialog.show();
-//                sare item grap kiye
-                EditText modelname = dialog.findViewById(R.id.mname);
-                EditText companyname = dialog.findViewById(R.id.cname);
-                EditText originalprice = dialog.findViewById(R.id.oprice);
-                EditText usedprice = dialog.findViewById(R.id.uprice);
-                ImageView itemimgd = dialog.findViewById(R.id.itemimg);
-                itemimg = itemimgd;
-//                image add karne ke liye
-                itemimgd.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent cameraintent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        File imageFile = new File(requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES),
-                                "camera_image_" + System.currentTimeMillis() + ".jpg");
-
-                        cameraImageUri = FileProvider.getUriForFile(requireContext(),
-                                "com.example.scrap2cash.fileprovider", imageFile);
-                        cameraintent.putExtra(MediaStore.EXTRA_OUTPUT, cameraImageUri);
-                        Intent galleryintent= new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        galleryintent.setType("image/*");
-                        Intent chooser= Intent.createChooser(galleryintent,"Select Image");
-                        chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS,new Intent[]{cameraintent});
-                        startActivityForResult(chooser,REQUEST_IMAGE);
-                    }
-                });
-//              add item pe click karne par
-                dialog.findViewById(R.id.additem).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-//                        check all are fill
-                        if (modelname.getText().toString().isEmpty() | companyname.getText().toString().isEmpty() |
-                                originalprice.getText().toString().isEmpty() | usedprice.getText().toString().isEmpty()) {
-                            modelname.setError("Enter Model Name");
-                            companyname.setError("Enter Company Name");
-                            originalprice.setError("Enter Original Price");
-                            usedprice.setError("Enter Used Price");
-                        } else {
-                            if (imageUri != null) {
-                                stackmodel newItem = new stackmodel(
-                                        imageUri,
-                                        modelname.getText().toString(),
-                                        companyname.getText().toString(),
-                                        originalprice.getText().toString(),
-                                        usedprice.getText().toString(),
-                                        false
-                                );
-                                adapter.notifyItemInserted(arrstack.size() - 1);
-                                recyclerview.scrollToPosition(arrstack.size() - 1);
-
-                                stackDB.insertScrap(newItem);
-
-//                                Toast.makeText(requireContext(), "Item Added", Toast.LENGTH_SHORT).show();
-                                nm.notify(NOTIFICATION_ID, notificationtc);
-                                dialog.dismiss();
-                                imageUri = null; // Reset for next item
-                            } else {
-                                Toast.makeText(requireContext(), "Please select an image", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                    }
-                });
-            }
-        });
+        fbtn.setOnClickListener(v->fbtnadd());
 //        binding.stackimg.setOnClickListener(v -> openstackFragment());
         binding.historyimg.setOnClickListener(v -> openHistoryFragment());
         binding.homeimg.setOnClickListener(v -> openHomeFragment());
         return root;
-    }
-//     gallery se image lene ke liye function
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE && resultCode == RESULT_OK ) {
-            if (data == null|| data.getData()==null) {
-                imageUri=cameraImageUri;}
-            else{
-                imageUri=data.getData();
-            }
-            Glide.with(requireContext()).load(imageUri).into(itemimg);
+    }// khatam oncreate method
+private void fbtnadd(){
+    Dialog dialog = new Dialog(requireContext());
+    dialog.setContentView(R.layout.add_item);
+    int width = LinearLayout.LayoutParams.MATCH_PARENT;
+    int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+    dialog.getWindow().setLayout(width, height);
+    dialog.show();
+//                sare item grap kiye
+    EditText modelname = dialog.findViewById(R.id.mname);
+    EditText companyname = dialog.findViewById(R.id.cname);
+    EditText originalprice = dialog.findViewById(R.id.oprice);
+    EditText usedprice = dialog.findViewById(R.id.uprice);
+    ImageView itemimgd = dialog.findViewById(R.id.itemimg);
+    itemimg = itemimgd;
+//                image add karne ke liye
+    itemimgd.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent cameraintent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            File imageFile = new File(requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES),
+                    "camera_image_" + System.currentTimeMillis() + ".jpg");
+
+            cameraImageUri = FileProvider.getUriForFile(requireContext(),
+                    "com.example.scrap2cash.fileprovider", imageFile);
+            cameraintent.putExtra(MediaStore.EXTRA_OUTPUT, cameraImageUri);
+            Intent galleryintent= new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            galleryintent.setType("image/*");
+            Intent chooser= Intent.createChooser(galleryintent,"Select Image");
+            chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS,new Intent[]{cameraintent});
+            startActivityForResult(chooser,REQUEST_IMAGE);
         }
-    }
-    //stack ke view model class ko use karne ke liye
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(StackViewModel.class);
-        // TODO: Use the ViewModel
-    }
-    private void openstackFragment() {
-        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.nav_host_fragment_content_main
-                , new stackfragment());
-        transaction.addToBackStack(null); // Optional: allows back navigation
-        transaction.commit();
-    }
-    private void openHistoryFragment() {
-        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.nav_host_fragment_content_main, new historyhome());
-        transaction.addToBackStack(null);
-        transaction.commit();
-    }
-    private void openHomeFragment() {
-        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.nav_host_fragment_content_main, new HomeFragment());
-        transaction.addToBackStack(null);
-        transaction.commit();
-    }
+    });
+//              add item pe click karne par
+    dialog.findViewById(R.id.additem).setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+//                        check all are fill
+            if (modelname.getText().toString().isEmpty() | companyname.getText().toString().isEmpty() |
+                    originalprice.getText().toString().isEmpty() | usedprice.getText().toString().isEmpty()) {
+                modelname.setError("Enter Model Name");
+                companyname.setError("Enter Company Name");
+                originalprice.setError("Enter Original Price");
+                usedprice.setError("Enter Used Price");
+            } else {
+                if (imageUri != null) {
+                    stackmodel newItem = new stackmodel(
+                            imageUri,
+                            modelname.getText().toString(),
+                            companyname.getText().toString(),
+                            originalprice.getText().toString(),
+                            usedprice.getText().toString(),
+                            false
+                    );
+                    viewModel.addItem(newItem, stackDB);
+                    nm.notify(NOTIFICATION_ID, notificationtc);
+                    dialog.dismiss();
+                    imageUri = null; // Reset for next item
+                } else {
+                    Toast.makeText(requireContext(), "Please select an image", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }
+    });
+}
+
     private void showUpdateDialog(stackmodel model, int position) {
 //        stackmodel model = arrstack.get(position);
         Dialog dialog = new Dialog(requireContext());
@@ -362,11 +280,11 @@ public class stackfragment extends Fragment {
         updatebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int ids=model.id;
                 String updatedModel = modelthis.getText().toString().trim();
                 String updatedCompany = companythis.getText().toString().trim();
                 String updatedOPrice = opricethis.getText().toString().trim();
                 String updatedUPrice = upricethis.getText().toString().trim();
-
                 if (updatedModel.isEmpty() | updatedCompany.isEmpty() |
                         updatedOPrice.isEmpty() | updatedUPrice.isEmpty()) {
                     modelthis.setError("Enter Model Name");
@@ -374,31 +292,77 @@ public class stackfragment extends Fragment {
                     opricethis.setError("Enter Original Price");
                     upricethis.setError("Enter Used Price");
                     return;}
-                         if(setimageint==0){
+                if(setimageint==0){
 //                             update item for DB....
-                             arrstack.get(position).imageUri = imageUri;
-                             arrstack.get(position).model = updatedModel;
-                             arrstack.get(position).company = updatedCompany;
-                             arrstack.get(position).originalprice = updatedOPrice;
-                             arrstack.get(position).usedprice = updatedUPrice;
-                             //  DB me update karna yahan
-                             stackDB.updateScrap(arrstack.get(position));
-
-                             adapter.notifyItemChanged(position);
-                             dialog.dismiss();
-                         } else {
-                             arrstack.get(position).img=setimageint;
-                             arrstack.get(position).model = updatedModel;
-                             arrstack.get(position).company = updatedCompany;
-                             arrstack.get(position).originalprice = updatedOPrice;
-                             arrstack.get(position).usedprice = updatedUPrice;
-                             //  DB me update karna yahan bhi
-                             stackDB.updateScrap(arrstack.get(position));
-                         }
-                        adapter.notifyItemChanged(position);
-                        dialog.dismiss();;
+                    stackmodel updateitem = new stackmodel(
+                            ids,
+                            imageUri,
+                            modelthis.getText().toString(),
+                            companythis.getText().toString(),
+                            opricethis.getText().toString(),
+                            upricethis.getText().toString(),
+                            false);
+                    viewModel.updateItem(updateitem, stackDB);
+                    adapter.notifyItemChanged(position);
+//                    dialog.dismiss();
+                } else {
+                    stackmodel updateitem = new stackmodel(
+                            ids,
+                            imageUri,
+                            modelthis.getText().toString(),
+                            companythis.getText().toString(),
+                            opricethis.getText().toString(),
+                            upricethis.getText().toString(),
+                            false);
+                    viewModel.updateItem(updateitem, stackDB);
+                    adapter.notifyItemChanged(position);
+                }
+                dialog.dismiss();;
                 Toast.makeText(getContext(), "Item Update", Toast.LENGTH_SHORT).show();
             }
         });
     }
+//     gallery se image lene ke liye function
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_IMAGE && resultCode == RESULT_OK ) {
+            if (data == null|| data.getData()==null) {
+                imageUri=cameraImageUri;}
+            else{
+                imageUri=data.getData();
+            }
+            Glide.with(requireContext()).load(imageUri).into(itemimg);
+        }
+    }
+    //stack ke view model class ko use karne ke liye
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mViewModel = new ViewModelProvider(this).get(StackViewModel.class);
+        // TODO: Use the ViewModel
+    }
+    private void openstackFragment() {
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.nav_host_fragment_content_main
+                , new stackfragment());
+        transaction.addToBackStack(null); // Optional: allows back navigation
+        transaction.commit();
+    }
+    private void openHistoryFragment() {
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.nav_host_fragment_content_main, new historyhome());
+//        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+    private void openHomeFragment() {
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.nav_host_fragment_content_main, new HomeFragment());
+//        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.example.scrap2cash;
+package com.example.scrap2cash.ui.stack;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,12 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 
-import androidx.annotation.Nullable;
-
 import java.util.ArrayList;
 
 public class StackDB extends SQLiteOpenHelper {
-
     private static final String DATABASE_NAME = "scrap2cash.db";
     private static final int DATABASE_VERSION = 1;  //(agar schema change hogi toh version bhi change hoga)
 
@@ -36,9 +33,9 @@ public class StackDB extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    public StackDB(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
-    }
+//    public StackDB(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+//        super(context, name, factory, version);
+//    }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -66,7 +63,6 @@ public class StackDB extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILE);
         onCreate(db);
     }
-
     // Insert Scrap Item (yeh item daalne ke liye hai)
     public long insertScrap(stackmodel item) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -77,7 +73,6 @@ public class StackDB extends SQLiteOpenHelper {
         cv.put(COL_USED_PRICE, item.usedprice);
         cv.put(COL_IMAGE_URI, item.imageUri != null ? item.imageUri.toString() : null);
         cv.put(COL_SELL_LATER, item.selllater ? 1 : 0);
-
         return db.insert(TABLE_SCRAP, null, cv); // returns id of inserted row
     }
 
@@ -121,10 +116,6 @@ public class StackDB extends SQLiteOpenHelper {
             db.close();
         }
     }
-
-
-
-
     // Update Scrap (Item yeh item ke update ke liye hai)
     public void updateScrap(stackmodel item) {
         SQLiteDatabase db = this.getWritableDatabase();
