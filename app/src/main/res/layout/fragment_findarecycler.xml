@@ -28,6 +28,7 @@
 
             <!-- Bharat Recycling Pvt Ltd -->
             <LinearLayout
+                android:id="@+id/linear1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -35,7 +36,8 @@
                 android:background="@android:color/white"
                 android:elevation="4dp"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="#E0F7FA">
+                android:backgroundTint="#E0F7FA"
+                tools:ignore="InvalidId">
 
 
                 <TextView
@@ -67,6 +69,7 @@
 
             <!-- CRUSH CARS -->
             <LinearLayout
+                android:id="@+id/linear2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -108,6 +111,7 @@
 
             <!-- Green-O-Tech India -->
             <LinearLayout
+                android:id="@+id/linear3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -148,6 +152,7 @@
 
             <!-- New India Network -->
             <LinearLayout
+                android:id="@+id/linear4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -189,6 +194,7 @@
 
             <!-- E-Waste Recyclers India -->
             <LinearLayout
+                android:id="@+id/linear5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -230,6 +236,7 @@
 
             <!-- JAAGRUTI Waste Paper Recycling -->
             <LinearLayout
+                android:id="@+id/linear6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -271,6 +278,7 @@
 
             <!-- Scrapcardelhi-car Scrap Dealer -->
             <LinearLayout
+                android:id="@+id/linear7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -312,6 +320,7 @@
 
             <!-- E-Waste Recycling in India -->
             <LinearLayout
+                android:id="@+id/linear8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"

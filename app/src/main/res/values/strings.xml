@@ -58,4 +58,5 @@ Small IT and telecommunication equipment. Typical equipment includes mobile phon
     <string name="e_t_specialstring3">🧺 Laundry &amp; Cleaning</string>
     <string name="e_t_specialstring2">🔌 Energy &amp; Appliances</string>
     <string name="e_t_specialstring4">💼 Lifestyle &amp; Finance</string>
+    <string name="title_activity_scrapadda">scrapadda</string>
 </resources>
