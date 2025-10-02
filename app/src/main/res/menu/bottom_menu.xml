@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+ <item
+   android:id="@+id/predictf"
+     android:title="Home"
+     android:icon="@drawable/house_01"
+     />
+    <item
+        android:id="@+id/stackf"
+        android:title="Stack"
+        android:icon="@drawable/layers"
+        />
+    <item
+        android:id="@+id/account"
+        android:title="Account"
+        android:icon="@drawable/user_image_account_box_24"/>
+</menu>

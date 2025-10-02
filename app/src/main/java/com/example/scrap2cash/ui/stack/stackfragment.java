@@ -100,7 +100,6 @@ public class stackfragment extends Fragment {
 //    }
 
         //    main function
-    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentStackBinding.inflate(inflater, container, false);
@@ -150,8 +149,8 @@ public class stackfragment extends Fragment {
 //        add button pe click hone par
         fbtn.setOnClickListener(v->fbtnadd());
 //        binding.stackimg.setOnClickListener(v -> openstackFragment());
-        binding.historyimg.setOnClickListener(v -> openHistoryFragment());
-        binding.homeimg.setOnClickListener(v -> openHomeFragment());
+//        binding.historyimg.setOnClickListener(v -> openHistoryFragment());
+//        binding.homeimg.setOnClickListener(v -> openHomeFragment());
         return root;
     }// khatam oncreate method
 private void fbtnadd(){

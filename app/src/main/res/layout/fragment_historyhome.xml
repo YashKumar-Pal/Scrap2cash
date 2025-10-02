@@ -109,118 +109,118 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:id="@+id/home_bottom_navigation"
-        android:orientation="horizontal"
-        android:background="#0F7A03">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:id="@+id/mainbl"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:id="@+id/main1bl"
-                android:layout_weight="1">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/homeimg"
-
-
-                    android:layout_weight="1"
-
-                    android:layout_marginRight="30dp"
-                    android:layout_marginLeft="30dp"
-                    android:src="@drawable/house_01"
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center"
-                    android:text="Home"
-                    android:textColor="#100D0D"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:id="@+id/main2bl"
-                android:layout_weight="1">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/stackimg"
-                    android:layout_weight="1"
-                    android:layout_marginRight="30dp"
-                    android:layout_marginLeft="30dp"
-
-                    android:src="@drawable/layers"
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center"
-                    android:text="Stack"
-                    android:textColor="#100D0D"
-                    android:textStyle="bold" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:id="@+id/main3bl"
-                android:layout_weight="1"
-                >
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/historyimg"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/user_circle"
-                    android:background="@drawable/bottomnvimg_bn"
-                    android:layout_marginLeft="30dp"
-                    android:padding="5dp"
-                    android:layout_marginRight="30dp"
-                    android:layout_weight="1"
-                    app:shapeAppearanceOverlay="@style/RoundedImageView" />
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        android:id="@+id/home_bottom_navigation"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:background="#0F7A03">-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:id="@+id/mainbl"-->
+<!--            >-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical"-->
+<!--                android:id="@+id/main1bl"-->
+<!--                android:layout_weight="1">-->
 <!--                <ImageView-->
 <!--                    android:layout_width="match_parent"-->
 <!--                    android:layout_height="match_parent"-->
-<!--                    android:id="@+id/historyimg"-->
+<!--                    android:id="@+id/homeimg"-->
+
+
+<!--                    android:layout_weight="1"-->
+
+<!--                    android:layout_marginRight="30dp"-->
+<!--                    android:layout_marginLeft="30dp"-->
+<!--                    android:src="@drawable/house_01"-->
+<!--                    />-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="2"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Home"-->
+<!--                    android:textColor="#100D0D"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--            </LinearLayout>-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical"-->
+<!--                android:id="@+id/main2bl"-->
+<!--                android:layout_weight="1">-->
+<!--                <ImageView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:id="@+id/stackimg"-->
 <!--                    android:layout_weight="1"-->
 <!--                    android:layout_marginRight="30dp"-->
 <!--                    android:layout_marginLeft="30dp"-->
-<!--                    android:background="@drawable/bottomnvimg_bn"-->
-<!--                    android:src="@drawable/user_circle"-->
+
+<!--                    android:src="@drawable/layers"-->
 <!--                    />-->
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center"
-                    android:text="Account"
-                    android:textColor="#100D0D"
-                    android:textStyle="bold" />
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="2"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Stack"-->
+<!--                    android:textColor="#100D0D"-->
+<!--                    android:textStyle="bold" />-->
+<!--            </LinearLayout>-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical"-->
+<!--                android:id="@+id/main3bl"-->
+<!--                android:layout_weight="1"-->
+<!--                >-->
+<!--                <com.google.android.material.imageview.ShapeableImageView-->
+<!--                    android:id="@+id/historyimg"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:src="@drawable/user_circle"-->
+<!--                    android:background="@drawable/bottomnvimg_bn"-->
+<!--                    android:layout_marginLeft="30dp"-->
+<!--                    android:padding="5dp"-->
+<!--                    android:layout_marginRight="30dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    app:shapeAppearanceOverlay="@style/RoundedImageView" />-->
+<!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:id="@+id/historyimg"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginRight="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginLeft="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:background="@drawable/bottomnvimg_bn"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:src="@drawable/user_circle"&ndash;&gt;-->
+<!--&lt;!&ndash;                    />&ndash;&gt;-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="2"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Account"-->
+<!--                    android:textColor="#100D0D"-->
+<!--                    android:textStyle="bold" />-->
+<!--            </LinearLayout>-->
 
 
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+<!--    </com.google.android.material.bottomnavigation.BottomNavigationView>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

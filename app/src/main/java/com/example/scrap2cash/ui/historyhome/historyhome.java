@@ -63,7 +63,7 @@ public class historyhome extends Fragment {
         nameEditText = root.findViewById(R.id.nameEditText);
         emailEditText = root.findViewById(R.id.emailEditText);
         saveButton = root.findViewById(R.id.saveButton);
-        accountimg=root.findViewById(R.id.historyimg);
+//        accountimg=root.findViewById(R.id.historyimg);
         selectimage=root.findViewById(R.id.changeImageText);
         selectimage.setOnClickListener(v -> showImagePickerdialog());
         profileImage.setOnClickListener(v -> showImagePickerdialog());
@@ -77,9 +77,9 @@ public class historyhome extends Fragment {
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();}
             // You can save this data to SharedPreferences or Firebase here
         });
-        binding.stackimg.setOnClickListener(v -> openstackFragment());
-//        binding.historyimg.setOnClickListener(v -> openHistoryFragment());
-        binding.homeimg.setOnClickListener(v -> openHomeFragment());
+//        binding.stackimg.setOnClickListener(v -> openstackFragment());
+////        binding.historyimg.setOnClickListener(v -> openHistoryFragment());
+//        binding.homeimg.setOnClickListener(v -> openHomeFragment());
         return root;
     }
     private void showImagePickerdialog(){
@@ -133,10 +133,10 @@ public class historyhome extends Fragment {
                 imageUri=data.getData();
             }
             profileImage.setImageURI(imageUri);
-            Glide.with(requireContext())
-                    .load(imageUri)
-                    .circleCrop()
-                    .into(accountimg);
+//            Glide.with(requireContext())
+//                    .load(imageUri)
+//                    .circleCrop()
+//                    .into(accountimg);
         }
     }
 

@@ -1,6 +1,9 @@
 package com.example.scrap2cash;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -16,6 +19,8 @@ import android.widget.Toast;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -43,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
 //            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 //            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 //            window.setStatusBarColor(Color.TRANSPARENT); // Makes top bar transparent
-//        }requirecontext this
+//        }
+//        requirecontext this
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (this.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)
                     != PackageManager.PERMISSION_GRANTED) {
@@ -75,26 +81,38 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         ImageView profileIcon = findViewById(R.id.profile_icon);
-
-//        profileIcon.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Your action here
-//                Toast.makeText(getApplicationContext(), "Profile clicked!", Toast.LENGTH_SHORT).show();
-//
-//                // Example: Open a new activity
-//                Intent intent = new Intent(MainActivity.this, loginedit .class);
-//                startActivity(intent);
-//            }
-//        });
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Context context= MainActivity.this;
+                AlertDialog.Builder exitDialog=new AlertDialog.Builder(context, androidx.appcompat.R.style.Theme_AppCompat_Dialog);
+                exitDialog.setTitle("Exit?");
+                exitDialog.setMessage("Are you sure want ot Exit?");
+                exitDialog.setIcon(R.drawable.exit_icon);
+                exitDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+//                        MainActivity.super.onBackPressed();
+//              super.onBackPressed();  not allow
+                    }
+                });
+                exitDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "App close cancel!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+//       exitDialog.setNeutralButton("cancel", new DialogInterface.OnClickListener() {
+//           @Override
+//           public void onClick(DialogInterface dialog, int which) {
+//               Toast.makeText(MainActivity.this, "Operation cancelled!", Toast.LENGTH_SHORT).show();
+//           }
+//       });
+                exitDialog.show();
+            }
+        });
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-////        getMenuInflater().inflate(R.layout.activity_loginedit, menu);
-//        return true;
-//    }
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -102,9 +120,35 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-    public void loginedit(View view){
-        Intent intent=new Intent(this, loginedit.class);
-        startActivity(intent);
-    }
+//    @SuppressLint("MissingSuperCall")
+//    @Override
+//    public void onBackPressed() {
+//        AlertDialog.Builder exitDialog=new AlertDialog.Builder(this);
+//        exitDialog.setTitle("Exit?");
+//        exitDialog.setMessage("Are you sure want ot Exit?");
+//        exitDialog.setIcon(R.drawable.exit_icon);
+//        exitDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                MainActivity.super.onBackPressed();
+////              super.onBackPressed();  not allow
+//            }
+//        });
+//        exitDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                Toast.makeText(MainActivity.this, "App close cancel!", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+////       exitDialog.setNeutralButton("cancel", new DialogInterface.OnClickListener() {
+////           @Override
+////           public void onClick(DialogInterface dialog, int which) {
+////               Toast.makeText(MainActivity.this, "Operation cancelled!", Toast.LENGTH_SHORT).show();
+////           }
+////       });
+//        exitDialog.show();
+//
+//
+//    }
 
 }
