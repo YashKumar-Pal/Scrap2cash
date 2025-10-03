@@ -1,4 +1,4 @@
-package com.example.scrap2cash.ui.stack;
+package com.example.scrap2cash.ui.home.stack;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.scrap2cash.R;
+import com.example.scrap2cash.ui.home.StackDB;
 
 import java.util.ArrayList;
 

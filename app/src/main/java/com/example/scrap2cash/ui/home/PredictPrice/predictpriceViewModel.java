@@ -1,4 +1,4 @@
-package com.example.scrap2cash.ui.PredictPrice;
+package com.example.scrap2cash.ui.home.PredictPrice;
 
 import androidx.lifecycle.ViewModel;
 

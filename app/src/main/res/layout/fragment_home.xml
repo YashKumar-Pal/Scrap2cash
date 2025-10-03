@@ -21,6 +21,7 @@ android:id="@+id/home_fragment"
     app:menu="@menu/bottom_nav_menu"
     app:itemTextColor="#fff"
     app:itemIconTint="#fff"
+    app:labelVisibilityMode="labeled"
     android:background="#0F7A03"
     android:layout_gravity="bottom"/>
 

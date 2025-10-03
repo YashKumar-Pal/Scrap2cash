@@ -1,12 +1,10 @@
-package com.example.scrap2cash.ui.stack;
+package com.example.scrap2cash.ui.home.stack;
 
 import static android.app.Activity.RESULT_OK;
 import static android.content.Context.NOTIFICATION_SERVICE;
 
 import androidx.core.content.FileProvider;
 import androidx.core.content.res.ResourcesCompat;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Dialog;
@@ -40,8 +38,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.scrap2cash.R;
 import com.example.scrap2cash.databinding.FragmentStackBinding;
-import com.example.scrap2cash.ui.historyhome.historyhome;
-import com.example.scrap2cash.ui.home.HomeFragment;
+import com.example.scrap2cash.ui.home.SharedDataViewModel;
+import com.example.scrap2cash.ui.home.StackDB;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
@@ -50,7 +48,7 @@ import java.util.ArrayList;
 
 public class stackfragment extends Fragment {
     StackViewModel viewModel;
-    Uri fimg;
+    Uri fimg=null;
     private static final int REQUEST_IMAGE = 100;
     private Uri cameraImageUri;
     private static final String CHHANEL_ID = "My Channel";
@@ -64,41 +62,16 @@ public class stackfragment extends Fragment {
     Uri imageUri;
     ImageView itemimg;
     Uri setimageUri;
-    String fmodel;
-    String fcompany;
-    String foriginal;
-    String fused;
+    String fmodel=null;
+    String fcompany=null;
+    String foriginal=null;
+    String fused=null;
     int setimageint;
     private StackDB stackDB;
 //    for notification
     NotificationManager nm;
     Notification notificationtc;
-//    @Override
-//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//
-//        getParentFragmentManager().setFragmentResultListener("datakey", getViewLifecycleOwner(), (key, bundle) -> {
-//            Uri fimg = bundle.getParcelable("demo image");
-//            String fmodel = bundle.getString("Model");
-//            String fcompany = bundle.getString("Brand");
-//            String foriginal = bundle.getString("original price");
-//            String fused = bundle.getString("current");
-//
-//            if (fimg != null && fmodel != null && fcompany != null && foriginal != null && fused != null) {
-//                stackmodel additem = new stackmodel(fimg, fmodel, fcompany, foriginal, fused, false);
-//                viewModel.addItem(additem, stackDB);
-//                nm.notify(NOTIFICATION_ID, notificationtc);
-//            } else {
-//                Toast.makeText(getContext(), "Error: Missing data", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        viewModel.getScrapItems().observe(getViewLifecycleOwner(), list -> {
-//            adapter.updateList(list);
-//            recyclerview.scrollToPosition(arrstack.size() - 1);
-//        });
-//    }
-
+    SharedDataViewModel shareVM;
         //    main function
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -107,6 +80,32 @@ public class stackfragment extends Fragment {
         stackDB = new StackDB(requireContext());
         viewModel= new ViewModelProvider(this).get(StackViewModel.class);
         viewModel.loadItemsFromDB(stackDB);
+        shareVM=new ViewModelProvider(requireActivity()).get(SharedDataViewModel.class);
+        shareVM.getModel().observe(getViewLifecycleOwner(),sharemodel->{
+            fmodel=sharemodel;
+        });
+        shareVM.getBrand().observe(getViewLifecycleOwner(),sharebrand->{
+            fcompany=sharebrand;
+        });
+        shareVM.getOP().observe(getViewLifecycleOwner(),shareop ->{
+            foriginal=shareop;
+        });
+        shareVM.getCP().observe(getViewLifecycleOwner(),shareop->{
+            fused=shareop;
+        });
+        shareVM.getImage().observe(getViewLifecycleOwner(),sharimage->{
+            fimg=sharimage;
+            tryAddItem();
+        });
+
+
+
+
+
+
+
+
+
         recyclerview = binding.mainrecyclerview;
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
 //        recycler view main item bind hone ke liye recycler adapter class call ho rhi h
@@ -148,9 +147,6 @@ public class stackfragment extends Fragment {
         }
 //        add button pe click hone par
         fbtn.setOnClickListener(v->fbtnadd());
-//        binding.stackimg.setOnClickListener(v -> openstackFragment());
-//        binding.historyimg.setOnClickListener(v -> openHistoryFragment());
-//        binding.homeimg.setOnClickListener(v -> openHomeFragment());
         return root;
     }// khatam oncreate method
 private void fbtnadd(){
@@ -341,27 +337,22 @@ private void fbtnadd(){
         mViewModel = new ViewModelProvider(this).get(StackViewModel.class);
         // TODO: Use the ViewModel
     }
-    private void openstackFragment() {
-        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.nav_host_fragment_content_main
-                , new stackfragment());
-        transaction.addToBackStack(null); // Optional: allows back navigation
-        transaction.commit();
+    private void tryAddItem(){
+        if (fimg != null && fmodel != null && fcompany != null && foriginal != null && fused != null) {
+            stackmodel additem = new stackmodel(fimg, fmodel, fcompany, foriginal, fused, false);
+            viewModel.addItem(additem, stackDB);
+            nm.notify(NOTIFICATION_ID, notificationtc);
+            shareVM.cleanModel();
+            shareVM.cleanBrand();
+            shareVM.cleanOP();
+            shareVM.cleanCP();
+            shareVM.cleanImage();
+        } else {
+            Toast.makeText(getContext(), "Error: Missing data", Toast.LENGTH_SHORT).show();
+        }
+        viewModel.getScrapItems().observe(getViewLifecycleOwner(), list -> {
+            adapter.updateList(list);
+            recyclerview.scrollToPosition(arrstack.size() - 1);
+        });
     }
-    private void openHistoryFragment() {
-        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.nav_host_fragment_content_main, new historyhome());
-//        transaction.addToBackStack(null);
-        transaction.commit();
-    }
-    private void openHomeFragment() {
-        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.nav_host_fragment_content_main, new HomeFragment());
-//        transaction.addToBackStack(null);
-        transaction.commit();
-    }
-
 }

@@ -1,10 +1,8 @@
-package com.example.scrap2cash.ui.PredictPrice;
+package com.example.scrap2cash.ui.home.PredictPrice;
 
 import static android.app.Activity.RESULT_OK;
 
 import androidx.core.content.FileProvider;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Dialog;
@@ -19,8 +17,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -35,6 +32,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.scrap2cash.R;
 import com.example.scrap2cash.databinding.FragmentPredictpriceBinding;
+import com.example.scrap2cash.ui.home.SharedDataViewModel;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -56,6 +54,14 @@ public class predictprice extends Fragment {
 
 
     private predictpriceViewModel mViewModel;
+    SharedDataViewModel shareVM;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        shareVM= new ViewModelProvider(requireActivity()).get(SharedDataViewModel.class);
+
+    }
 
 //    public static predictprice newInstance() {
 //        return new predictprice();
@@ -67,11 +73,12 @@ public class predictprice extends Fragment {
 //        return inflater.inflate(R.layout.fragment_predictprice, container, false);
         binding = FragmentPredictpriceBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        model=root.findViewById(R.id.modelid);
-        selectimg=root.findViewById(R.id.selectimg);
-        ptspinner = root.findViewById(R.id.producttype_spinner);
-        Bspinner= root.findViewById(R.id.brandtype_spinner);
-        pp=root.findViewById(R.id.predictbtn);
+        model=binding.modelid;
+        originalprice=binding.originalprice;
+        selectimg=binding.selectimg;
+        ptspinner = binding.producttypeSpinner;
+        Bspinner=binding.brandtypeSpinner;
+        pp=binding.predictbtn;
         arrproducttyp.add("Laptop");
         arrproducttyp.add("Smartphone");
         arrproducttyp.add("TV");
@@ -184,7 +191,6 @@ public class predictprice extends Fragment {
                 startActivityForResult(chooser,REQUEST_IMAGE);
             }
         });
-
         pp.setOnClickListener(v->showPricePopup());
 //        root.findViewById(R.id.stackimg).setOnClickListener(v -> openstackFragment());
 //        binding.historyimg.setOnClickListener(v -> openHistoryFragment());
@@ -213,7 +219,7 @@ public class predictprice extends Fragment {
         // TODO: Use the ViewModel
     }
     private void showPricePopup() {
-        View popupView = LayoutInflater.from(requireContext()).inflate(R.layout.result_popup, null);
+//        View popupView = LayoutInflater.from(requireContext()).inflate(R.layout.result_popup, null);
 //        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
 //        builder.setView(popupView);
 //        AlertDialog dialog = builder.create();
@@ -223,43 +229,35 @@ public class predictprice extends Fragment {
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         dialog.getWindow().setLayout(width, height);
         dialog.show();
+        String modelvalue=model.getText().toString().trim();
+        String originalpricevalue=originalprice.getText().toString().trim();
         dialog.findViewById(R.id.das).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ( model.getText().toString().isEmpty() && originalprice.getText().toString().isEmpty()){
+                if (model.getText().toString().isEmpty() && originalprice.getText().toString().isEmpty()){
                     model.setError("Enter Model name");
                     originalprice.setError("Enter Original Price");
                 }
                 else {
                     if (imageUri != null) {
-                        Bundle result = new Bundle();
-                        result.putString("Model", model.getText().toString());
-                        result.putString("Brand", selectbrand);
-                        result.putString("original price", originalprice.getText().toString());
-                        result.putString("current", "20000");
-                        result.putParcelable("demo image", imageUri);
-
-// Navigate first
-//                        FragmentTransaction transaction = getParentFragmentManager()
-//                                .beginTransaction();
-//                        transaction.replace(R.id.nav_host_fragment_content_main, new stackfragment());
-//                        transaction.addToBackStack(null);
-//                        transaction.commit();
-
-// Set result AFTER commit
-                        getParentFragmentManager().setFragmentResult("datakey", result);
-                        NavController navController = NavHostFragment.findNavController(predictprice.this);
-                        navController.navigate(R.id.action_nav_home_to_nav_stack);
-
-//                        getParentFragmentManager().executePendingTransactions(); // ensures fragment is attached
-
-                    } else {
-                        Toast.makeText(requireContext(), "Please choose image", Toast.LENGTH_SHORT).show();
+                          shareVM.setModel(modelvalue);
+                          shareVM.setBrand(selectbrand);
+                          shareVM.setOP(originalpricevalue);
+                          shareVM.setCP("20000");
+                          shareVM.setImage(imageUri);
+                        ViewPager2 viewPager2= requireActivity().findViewById(R.id.viewpager2);
+                        viewPager2.setCurrentItem(1,true);
+                        selectimg.setImageResource(R.drawable.selectimg);
+                        model.setText("");
+                        originalprice.setText("");
+                    }else {
+                        Toast.makeText(requireContext(), "Please Select Image", Toast.LENGTH_SHORT).show();
                     }
                 }
                 dialog.dismiss();
             }
         });
+
     }
 
 }

@@ -1,4 +1,4 @@
-package com.example.scrap2cash.ui.stack;
+package com.example.scrap2cash.ui.home;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
+
+import com.example.scrap2cash.ui.home.stack.stackmodel;
 
 import java.util.ArrayList;
 

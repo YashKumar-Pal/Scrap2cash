@@ -7,7 +7,7 @@
     android:id="@+id/predictprice"
     android:orientation="vertical"
     android:background="@drawable/fragmentroundbackground_bn"
-    tools:context=".ui.PredictPrice.predictprice">
+    tools:context=".ui.home.PredictPrice.predictprice">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"

@@ -1,4 +1,4 @@
-package com.example.scrap2cash.ui.historyhome;
+package com.example.scrap2cash.ui.home.historyhome;
 
 import androidx.lifecycle.ViewModel;
 

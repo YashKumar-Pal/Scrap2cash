@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/fragmentroundbackground_bn"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.historyhome.historyhome">
+    tools:context=".ui.home.historyhome.historyhome">
 
     <ScrollView
         android:layout_width="match_parent"

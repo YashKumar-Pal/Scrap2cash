@@ -1,10 +1,8 @@
-package com.example.scrap2cash.ui.historyhome;
+package com.example.scrap2cash.ui.home.historyhome;
 
 import static android.app.Activity.RESULT_OK;
 
 import androidx.core.content.FileProvider;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -26,12 +24,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.scrap2cash.R;
 import com.example.scrap2cash.databinding.FragmentHistoryhomeBinding;
-import com.example.scrap2cash.databinding.FragmentStackBinding;
-import com.example.scrap2cash.ui.home.HomeFragment;
-import com.example.scrap2cash.ui.stack.stackfragment;
+
 
 import java.io.File;
 
@@ -102,21 +97,6 @@ public class historyhome extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(HistoryhomeViewModel.class);
         // TODO: Use the ViewModel
-    }
-    private void openHomeFragment() {
-        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.nav_host_fragment_content_main, new HomeFragment());
-        transaction.addToBackStack(null);
-        transaction.commit();
-    }
-    private void openstackFragment() {
-        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.nav_host_fragment_content_main
-                , new stackfragment());
-        transaction.addToBackStack(null); // Optional: allows back navigation
-        transaction.commit();
     }
 //    private void openGallery() {
 //        Intent gallery = new Intent(Intent.ACTION_PICK,
