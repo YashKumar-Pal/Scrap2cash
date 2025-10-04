@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/predictprice"
     android:orientation="vertical"
-    android:background="@drawable/fragmentroundbackground_bn"
+    android:background="@android:color/transparent"
     tools:context=".ui.home.PredictPrice.predictprice">
     <ScrollView
         android:layout_width="match_parent"

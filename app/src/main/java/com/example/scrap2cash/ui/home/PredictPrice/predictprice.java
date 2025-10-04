@@ -192,9 +192,7 @@ public class predictprice extends Fragment {
             }
         });
         pp.setOnClickListener(v->showPricePopup());
-//        root.findViewById(R.id.stackimg).setOnClickListener(v -> openstackFragment());
-//        binding.historyimg.setOnClickListener(v -> openHistoryFragment());
-//        binding.homeimg.setOnClickListener(v-> openHomeFragment());
+
         return root;
 
     }

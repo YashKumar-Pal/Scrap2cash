@@ -38,7 +38,7 @@
             android:name=".ui.setting.settingat"
             android:exported="false" />
         <activity
-            android:name=".loginedit"
+            android:name=".ui.loginactivies.loginactivities"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

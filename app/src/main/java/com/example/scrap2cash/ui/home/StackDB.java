@@ -17,7 +17,7 @@ public class StackDB extends SQLiteOpenHelper {
 
     // Scrap Items Table (yeh items ki table hai)
     private static final String TABLE_SCRAP = "scrap_items";
-    private static final String COL_ID = "id";
+    public static final String COL_ID = "id";
     private static final String COL_MODEL = "model";
     private static final String COL_COMPANY = "company";
     private static final String COL_ORIGINAL_PRICE = "original_price";
@@ -26,10 +26,13 @@ public class StackDB extends SQLiteOpenHelper {
     private static final String COL_SELL_LATER = "sell_later";
 
     // Profile Table  (yeh profile wale ke liye banaya hai abhi se) optional
-    private static final String TABLE_PROFILE = "user_profile";
-    private static final String COL_NAME = "name";
-    private static final String COL_EMAIL = "email";
-    private static final String COL_PROFILE_URI = "profile_uri";
+    public static final String TABLE_PROFILE = "user_profile";
+    public static final String COL_NAME = "name";
+    public static final String COL_EMAIL = "email";
+    private static final String COL_PH_NO= "ph_no";
+    public static final String COL_PROFILE_URI = "profile_uri";
+    private static final String TABLE_IDPASSWORD= "user_idpassword";
+    private static final String COL_PASSWORD="password";
 
     public StackDB(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -47,7 +50,7 @@ public class StackDB extends SQLiteOpenHelper {
                 + COL_COMPANY + " TEXT, "
                 + COL_ORIGINAL_PRICE + " TEXT, "
                 + COL_USED_PRICE + " TEXT, "
-                + COL_IMAGE_URI + " TEXT, "
+//                + COL_IMAGE_URI + " TEXT, "
                 + COL_SELL_LATER + " INTEGER)";
         db.execSQL(createScrapTable);
 
@@ -55,8 +58,16 @@ public class StackDB extends SQLiteOpenHelper {
                 + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COL_NAME + " TEXT, "
                 + COL_EMAIL + " TEXT, "
+                +COL_PH_NO +"INTEGER , "
                 + COL_PROFILE_URI + " TEXT)";
         db.execSQL(createProfileTable);
+
+
+        String createIdPasswordTable=" CREATE TABLE " +TABLE_IDPASSWORD +"("
+              + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + COL_EMAIL +"TEXT, "
+              + COL_PASSWORD + "TEXT) ";
+        db.execSQL(createIdPasswordTable);
     }
 
     @Override
@@ -141,12 +152,23 @@ public class StackDB extends SQLiteOpenHelper {
         cv.put(COL_NAME, name);
         cv.put(COL_EMAIL, email);
         cv.put(COL_PROFILE_URI, profileUri != null ? profileUri.toString() : null);
-
         db.insert(TABLE_PROFILE, null, cv);
     }
-
-    public Cursor getProfile() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("SELECT * FROM " + TABLE_PROFILE + " LIMIT 1", null);
+    public void updateProfile(int id, String name, String email, Uri profileImage){
+        SQLiteDatabase writableDb=this.getWritableDatabase();
+        ContentValues cv= new ContentValues();
+        cv.put(StackDB.COL_NAME,name);
+        cv.put(StackDB.COL_EMAIL,email);
+        cv.put(StackDB.COL_PROFILE_URI,profileImage !=null ? profileImage.toString():null);
+        writableDb.update(TABLE_PROFILE,cv,StackDB.COL_ID+"=?",new String[]{String.valueOf(id)});
     }
+    public void deleteProfile(int id){
+        SQLiteDatabase writable= this.getWritableDatabase();
+        writable.delete(TABLE_PROFILE, StackDB.COL_ID+ "=?",new String[]{String.valueOf(id)});
+    }
+
+//    public Cursor getProfile() {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        return db.rawQuery("SELECT * FROM " + TABLE_PROFILE + " LIMIT 1", null);
+//    }
 }

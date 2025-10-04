@@ -1,4 +1,4 @@
-package com.example.scrap2cash;
+package com.example.scrap2cash.ui.loginactivies;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -15,47 +15,59 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-public class loginedit extends AppCompatActivity {
-    private ImageView profileImage;
-    private EditText nameEditText, emailEditText;
-    private Button saveButton;
+import com.example.scrap2cash.R;
+import com.example.scrap2cash.ui.loginactivies.fragments.Login;
+import com.example.scrap2cash.ui.loginactivies.fragments.Signup;
+import com.example.scrap2cash.ui.loginactivies.fragments.cwgoogle;
+
+public class loginactivities extends AppCompatActivity {
+
     private static final int PICK_IMAGE = 100;
     private Uri imageUri;
+    int fragmentno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_loginedit);
+        setContentView(R.layout.activity_loginactivities);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        profileImage = findViewById(R.id.profileImage);
-        nameEditText = findViewById(R.id.nameEditText);
-        emailEditText = findViewById(R.id.emailEditText);
-        saveButton = findViewById(R.id.saveButton);
-        profileImage.setOnClickListener(v -> openGallery());
-        saveButton.setOnClickListener(v -> {
-            String name = nameEditText.getText().toString();
-            String email = emailEditText.getText().toString();
-            Toast.makeText(this, "Saved: " + name + ", " + email, Toast.LENGTH_SHORT).show();
-            // You can save this data to SharedPreferences or Firebase here
-        });
+        Intent fromact=getIntent();
+        fragmentno=fromact.getIntExtra("fragmentno",1);
+       openf(fragmentno);
+
     }
     private void openGallery() {
             Intent gallery = new Intent(Intent.ACTION_PICK,
                     MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(gallery, PICK_IMAGE);
     }
+    public void openf(int value){
+        FragmentManager fm= getSupportFragmentManager();
+        FragmentTransaction ft= fm.beginTransaction();
+        if (fragmentno==1){
+           ft.add(R.id.loginfl,new cwgoogle());
+        } else if (fragmentno==2) {
+           ft.add(R.id.loginfl,new Signup());
+        }else if(fragmentno==3) {
+           ft.add(R.id.loginfl,new Login());
+        }else{
+            Toast.makeText(this, "fragment error!", Toast.LENGTH_SHORT).show();
+        }
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
             if (resultCode == RESULT_OK && requestCode == PICK_IMAGE) {
                 imageUri = data.getData();
-                profileImage.setImageURI(imageUri);
+//                profileImage.setImageURI(imageUri);
             }
     }
 }

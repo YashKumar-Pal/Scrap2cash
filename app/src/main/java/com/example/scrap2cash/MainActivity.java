@@ -16,12 +16,14 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.scrap2cash.ui.home.HomeFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -81,37 +83,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         ImageView profileIcon = findViewById(R.id.profile_icon);
-        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                Context context= MainActivity.this;
-                AlertDialog.Builder exitDialog=new AlertDialog.Builder(context, androidx.appcompat.R.style.Theme_AppCompat_Dialog);
-                exitDialog.setTitle("Exit?");
-                exitDialog.setMessage("Are you sure want ot Exit?");
-                exitDialog.setIcon(R.drawable.exit_icon);
-                exitDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-//                        MainActivity.super.onBackPressed();
-//              super.onBackPressed();  not allow
-                    }
-                });
-                exitDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, "App close cancel!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-//       exitDialog.setNeutralButton("cancel", new DialogInterface.OnClickListener() {
-//           @Override
-//           public void onClick(DialogInterface dialog, int which) {
-//               Toast.makeText(MainActivity.this, "Operation cancelled!", Toast.LENGTH_SHORT).show();
-//           }
-//       });
-                exitDialog.show();
-            }
-        });
+
     }
 
     @Override

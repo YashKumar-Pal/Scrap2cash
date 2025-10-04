@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fragmentroundbackground_bn"
+    android:background="@android:color/transparent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.home.historyhome.historyhome">
 
@@ -23,17 +23,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#49A436"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="15dp"
                 android:padding="5dp"
-                app:cardElevation="20dp">
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:alpha="0.99"
-                    android:padding="24dp">
-                    <com.google.android.material.imageview.ShapeableImageView
+                    android:padding="15dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/profileorexit">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:layout_gravity="center">
+                            <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/profileImage"
                         android:layout_width="140dp"
                         android:layout_height="120dp"
@@ -47,6 +59,46 @@
                         android:focusable="true"
                         android:layout_marginRight="30dp"
                         app:shapeAppearanceOverlay="@style/RoundedImageView" />
+                            <TextView
+                                android:id="@+id/changeImageText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:paddingTop="8dp"
+                                android:text="Change Profile Picture"
+                                android:textColor="@color/purple_500" />
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="top"
+                            android:orientation="vertical"
+                            android:layout_weight="10">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_weight="3"
+                                android:id="@+id/logoutll"
+                                android:layout_height="match_parent">
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/logoutbutton"
+                           android:layout_gravity="top"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/logout_icon"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+<!--                                faltu h-->
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
                     <!-- Profile Image -->
 <!--                    <ImageView-->
 <!--                        android:id="@+id/profileImage"-->
@@ -60,15 +112,6 @@
 <!--                        android:src="@drawable/user_circle" />-->
 
                     <!-- Change Image Text -->
-                    <TextView
-                        android:id="@+id/changeImageText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:paddingTop="8dp"
-                        android:text="Change Profile Picture"
-                        android:textColor="@color/purple_500" />
-
                     <!-- Name Field -->
                     <EditText
                         android:id="@+id/nameEditText"
@@ -104,123 +147,13 @@
                         android:background="@drawable/add_itemround"
                         android:text="Save"
                         android:textSize="20sp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="demo"
+                        android:id="@+id/demo"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </ScrollView>
-
-<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        android:id="@+id/home_bottom_navigation"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:background="#0F7A03">-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:id="@+id/mainbl"-->
-<!--            >-->
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="vertical"-->
-<!--                android:id="@+id/main1bl"-->
-<!--                android:layout_weight="1">-->
-<!--                <ImageView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:id="@+id/homeimg"-->
-
-
-<!--                    android:layout_weight="1"-->
-
-<!--                    android:layout_marginRight="30dp"-->
-<!--                    android:layout_marginLeft="30dp"-->
-<!--                    android:src="@drawable/house_01"-->
-<!--                    />-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:layout_weight="2"-->
-<!--                    android:gravity="center"-->
-<!--                    android:text="Home"-->
-<!--                    android:textColor="#100D0D"-->
-<!--                    android:textStyle="bold" />-->
-
-<!--            </LinearLayout>-->
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="vertical"-->
-<!--                android:id="@+id/main2bl"-->
-<!--                android:layout_weight="1">-->
-<!--                <ImageView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:id="@+id/stackimg"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:layout_marginRight="30dp"-->
-<!--                    android:layout_marginLeft="30dp"-->
-
-<!--                    android:src="@drawable/layers"-->
-<!--                    />-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:layout_weight="2"-->
-<!--                    android:gravity="center"-->
-<!--                    android:text="Stack"-->
-<!--                    android:textColor="#100D0D"-->
-<!--                    android:textStyle="bold" />-->
-<!--            </LinearLayout>-->
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="vertical"-->
-<!--                android:id="@+id/main3bl"-->
-<!--                android:layout_weight="1"-->
-<!--                >-->
-<!--                <com.google.android.material.imageview.ShapeableImageView-->
-<!--                    android:id="@+id/historyimg"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:src="@drawable/user_circle"-->
-<!--                    android:background="@drawable/bottomnvimg_bn"-->
-<!--                    android:layout_marginLeft="30dp"-->
-<!--                    android:padding="5dp"-->
-<!--                    android:layout_marginRight="30dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    app:shapeAppearanceOverlay="@style/RoundedImageView" />-->
-<!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:id="@+id/historyimg"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_weight="1"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_marginRight="30dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_marginLeft="30dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:background="@drawable/bottomnvimg_bn"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:src="@drawable/user_circle"&ndash;&gt;-->
-<!--&lt;!&ndash;                    />&ndash;&gt;-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:layout_weight="2"-->
-<!--                    android:gravity="center"-->
-<!--                    android:text="Account"-->
-<!--                    android:textColor="#100D0D"-->
-<!--                    android:textStyle="bold" />-->
-<!--            </LinearLayout>-->
-
-
-
-<!--        </LinearLayout>-->
-
-<!--    </com.google.android.material.bottomnavigation.BottomNavigationView>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#000"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/closebtn"
+        android:src="@drawable/close_icon"
+        android:layout_gravity="end"
+        android:clickable="true"
+        android:focusable="true"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create an account or Log in "
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:background="@android:color/transparent"
+        android:gravity="center_horizontal"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_marginTop="25dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_popup_buttonbg"
+        android:text="Continue with Google"
+        android:textSize="22sp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:id="@+id/cwgoogle"/>
+  <androidx.appcompat.widget.AppCompatButton
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@drawable/login_popup_buttonbg"
+      android:text="Sign up"
+      android:textColor="#000"
+      android:textSize="22sp"
+      android:textStyle="bold"
+      android:layout_marginTop="5dp"
+      android:id="@+id/signup"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_popup_buttonbg"
+        android:text="Log in"
+        android:layout_marginTop="5dp"
+        android:textColor="#000"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:id="@+id/login"/>
+
+</LinearLayout>
