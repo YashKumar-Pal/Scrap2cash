@@ -69,10 +69,10 @@ public class findarecyclerFragment extends Fragment {
         final AlertDialog dialog = builder.create();
         dialog.show();
 
-        // ❌ No -> dismiss only
+        // No -> dismiss only
         btnNo.setOnClickListener(v -> dialog.dismiss());
 
-        // ✅ Yes -> wait 3 sec then open map
+        // Yes -> wait 3 sec then open map
         btnYes.setOnClickListener(v -> {
             new Handler().postDelayed(() -> {
                 openMap(destination);

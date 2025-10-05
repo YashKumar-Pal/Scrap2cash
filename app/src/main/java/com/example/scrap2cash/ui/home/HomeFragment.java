@@ -100,7 +100,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void handleOnBackPressed() {
                 if (id == R.id.nav_home) {
-                    AlertDialog.Builder exitDialog = new AlertDialog.Builder(requireActivity(), androidx.appcompat.R.style.Theme_AppCompat_Dialog);
+                    AlertDialog.Builder exitDialog = new AlertDialog.Builder(requireActivity());//, androidx.appcompat.R.style.Theme_AppCompat_Dialog);
                     exitDialog.setTitle("Exit?");
                     exitDialog.setMessage("Are you sure want ot Exit?");
                     exitDialog.setIcon(R.drawable.exit_icon);

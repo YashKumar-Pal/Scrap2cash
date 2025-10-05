@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.loginactivies.fragments.Login">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="40sp"
-        android:text="Login Fragment" />
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:id="@+id/cwgooglemainll">
 
-</FrameLayout>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:gravity="bottom|center_horizontal"
+        android:text="Continue"
+        android:textColor="#000"
+        android:textSize="25sp"
+        android:clickable="true"
+        android:focusable="true"
+        android:textStyle="bold" />
+
+
+</LinearLayout>
