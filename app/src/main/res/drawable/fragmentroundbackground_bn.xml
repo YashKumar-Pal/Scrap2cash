@@ -3,16 +3,17 @@
     android:shape="rectangle">
 
     <!-- Background color -->
-    <solid android:color="#81C784" />
+    <solid android:color="#4DCCCCCC
+" />
 
     <!-- Border -->
     <stroke
         android:width="2dp"
-        android:color="#075210" />
+        android:color="#4DCCCCCC" />
 
     <!-- Rounded corners -->
-    <corners android:topLeftRadius="18dp"
-        android:topRightRadius="18dp"
+    <corners android:topLeftRadius="48dp"
+        android:topRightRadius="48dp"
         />
 
     <!-- Optional padding inside the box -->

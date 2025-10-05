@@ -43,9 +43,14 @@
             />
         <item
             android:id="@+id/nav_6"
-            android:title="@string/menu_6"
+            android:title="Find a Recycler"
             android:icon="@drawable/find_icon"
             />
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/user_circle"
+            android:title="Account"/>
+
         <item
             android:id="@+id/nav_7"
             android:title="@string/menu_8"

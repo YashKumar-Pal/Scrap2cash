@@ -5,42 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#B0E0B3"
+    android:background="@drawable/home4_bg"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
         android:id="@+id/appbar_oftoolbar"
-        android:theme="@style/Theme.Scrap2cash.AppBarOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
         android:background="@android:color/transparent"
+        android:theme="@style/Theme.Scrap2cash.AppBarOverlay"
         app:elevation="0dp"
 
         >
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="match_parent"
+            android:layout_width="362dp"
             android:layout_height="75dp"
-            android:background="@drawable/toolbar_bg"
+            android:layout_gravity="left"
 
-            android:gravity="center_vertical"
-            android:backgroundTint="#0F7A03"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="15dp"
-           android:layout_marginBottom="10dp"
-            android:layout_gravity="center_vertical"
-            app:popupTheme="@style/Theme.Scrap2cash.AppBarOverlay"
-            >
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/toolbar_bg"
+            android:backgroundTint="#4DCCCCCC"
+            android:gravity="center_vertical"
+            app:popupTheme="@style/Theme.Scrap2cash.AppBarOverlay">
+
             <ImageView
                 android:id="@+id/profile_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="end"
                 android:layout_marginEnd="16dp"
-                android:src="@mipmap/scrap2cash_icon2_round"
+                android:background="@drawable/roundedlogin"
                 android:scaleType="centerCrop"
-                android:background="@drawable/roundedlogin"/>
+                android:src="@mipmap/scrap2cash_icon2_round" />
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>

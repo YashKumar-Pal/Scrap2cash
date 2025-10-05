@@ -10,7 +10,7 @@
         android:id="@+id/mainll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/add_itemround"
+        android:background="#990D1B2A"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
             android:id="@+id/update"
             android:layout_gravity="center_horizontal"
             android:text="Add Item"
-            android:textColor="#062C03"
+            android:textColor="@color/white"
             android:textSize="45sp" />
 
         <EditText
@@ -30,9 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
             android:textColorHint="#EBE2E2"
             android:textColor="#0F0B0B"
             android:backgroundTint="#fff"
@@ -45,9 +44,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
             android:textColor="#0F0B0B"
             android:textColorHint="#EBE2E2"
 
@@ -60,9 +58,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
+           android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
             android:textColor="#0F0B0B"
             android:textColorHint="#EBE2E2"
             android:backgroundTint="#fff"
@@ -76,9 +73,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
             android:textColor="#0F0B0B"
             android:textColorHint="#EBE2E2"
             android:inputType="numberDecimal"
@@ -90,6 +86,7 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_marginTop="25dp"
             android:id="@+id/itemimg"
             android:clickable="true"
             android:layout_gravity="center_horizontal"
@@ -100,7 +97,7 @@
             android:text="Click to Choose\n       image"
             android:layout_gravity="center_horizontal"
             android:id="@+id/chooseimg"
-            android:textColor="#000"/>
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/additem"

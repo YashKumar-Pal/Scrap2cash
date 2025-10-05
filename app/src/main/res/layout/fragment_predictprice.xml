@@ -22,8 +22,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
             android:orientation="vertical">
 
             <!--    bottom navigation view-->
@@ -32,11 +32,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="72dp"
-                android:backgroundTint="#5ABA45"
+                android:backgroundTint="@android:color/transparent"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+                app:cardElevation="5dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
                 android:layout_gravity="top"
                 app:layout_constraintBottom_toTopOf="@+id/predictbtn"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -71,8 +71,10 @@
 
                             <TextView
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="61dp"
+                                android:layout_marginTop="30dp"
                                 android:layout_marginBottom="10dp"
+                                android:gravity="center"
                                 android:text="@string/h_f_ecd"
                                 android:textColor="#140B0B"
                                 android:textSize="30sp"
@@ -81,9 +83,9 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="4dp"
+                                android:layout_marginLeft="19dp"
                                 android:layout_marginTop="10dp"
-                                android:text="@string/Product_type"
+                                android:text="Product Type*"
                                 android:textColor="#140B0B"
                                 android:textSize="25sp" />
 
@@ -91,6 +93,8 @@
                                 android:id="@+id/producttype_spinner"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="19dp"
+                                android:layout_marginEnd="19dp"
                                 android:background="@drawable/roundedbox_background"
 
                                 android:spinnerMode="dropdown" />
@@ -98,9 +102,9 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="4dp"
+                                android:layout_marginLeft="19dp"
                                 android:layout_marginTop="10dp"
-                                android:text="@string/Brand"
+                                android:text="Brand*"
                                 android:textColor="#140B0B"
                                 android:textSize="25sp" />
 
@@ -108,30 +112,32 @@
                                 android:id="@+id/brandtype_spinner"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="19dp"
                                 android:background="@drawable/roundedbox_background"
                                 android:spinnerMode="dropdown" />
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="4dp"
+                                android:layout_marginLeft="19dp"
                                 android:layout_marginTop="10dp"
-                                android:text="@string/modeln"
+                                android:text="Model*"
                                 android:textColor="#140B0B"
                                 android:textSize="25sp" />
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="19dp"
                                 android:background="@drawable/roundedbox_background"
                                 android:hint="enter"
                                 android:id="@+id/modelid"
-                                android:textColor="#000"
+                                android:textColor="#4CAF50"
                                 android:textColorHint="#EBE2E2"
                                 android:maxEms="5" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="4dp"
+                                android:layout_marginLeft="19dp"
                                 android:layout_marginTop="10dp"
                                 android:text="@string/User_Lifespan"
                                 android:textColor="#140B0B"
@@ -140,6 +146,7 @@
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="19dp"
                                 android:background="@drawable/roundedbox_background"
                                 android:hint="2 Year"
                                 android:textColor="#000"
@@ -149,7 +156,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="4dp"
+                                android:layout_marginLeft="19dp"
                                 android:layout_marginTop="10dp"
                                 android:text="Expiry Years"
                                 android:textColor="#140B0B"
@@ -159,6 +166,7 @@
                                 android:id="@+id/expiryyear"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="19dp"
                                 android:background="@drawable/roundedbox_background"
                                 android:hint="enter"
                                 android:textColor="#000"
@@ -169,9 +177,9 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="4dp"
+                                android:layout_marginLeft="19dp"
                                 android:layout_marginTop="10dp"
-                                android:text="Condition"
+                                android:text="Condition* "
                                 android:textColor="#140B0B"
                                 android:textSize="25sp" />
 
@@ -179,6 +187,7 @@
                                 android:id="@+id/condition"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="19dp"
                                 android:background="@drawable/roundedbox_background"
                                 android:hint="enter"
                                 android:textColor="#000"
@@ -189,9 +198,9 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="4dp"
+                                android:layout_marginLeft="19dp"
                                 android:layout_marginTop="10dp"
-                                android:text="Original Price"
+                                android:text="Original Price* "
                                 android:textColor="#140B0B"
                                 android:textSize="25sp" />
 
@@ -199,6 +208,7 @@
                                 android:id="@+id/originalprice"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="19dp"
                                 android:background="@drawable/roundedbox_background"
                                 android:hint="10000"
                                 android:textColor="#000"
@@ -209,7 +219,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="4dp"
+                                android:layout_marginLeft="19dp"
                                 android:layout_marginTop="10dp"
                                 android:text="Used Duration"
                                 android:textColor="#140B0B"
@@ -219,6 +229,7 @@
                                 android:id="@+id/usedduration"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="19dp"
                                 android:background="@drawable/roundedbox_background"
                                 android:hint="1"
                                 android:textColor="#000"
@@ -234,6 +245,7 @@
                                 <ImageView
                                     android:layout_width="80dp"
                                     android:layout_height="80dp"
+                                    android:layout_marginTop="10dp"
                                     android:src="@drawable/selectimg"
                                     android:clickable="true"
                                     android:id="@+id/selectimg"/>
