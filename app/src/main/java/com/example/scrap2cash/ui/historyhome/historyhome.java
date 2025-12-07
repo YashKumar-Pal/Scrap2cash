@@ -76,7 +76,6 @@ public class historyhome extends Fragment {
         saveButton=binding.saveButton;
         logout=binding.logoutbutton;
         logoutll=binding.logoutll;
-        Button demobtn=binding.demo;
         selectimagetext=binding.changeImageText;  // kaam main le sakte h
         id=-1;
         loadsavedprofile();
@@ -120,13 +119,6 @@ public class historyhome extends Fragment {
                     logoutbtnfun(id);}
             }
 
-        });
-        demobtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(getContext(), loginactivities.class);
-                startActivity(intent);
-            }
         });
         return root;
     }

@@ -18,15 +18,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <!-- Bharat Recycling Pvt Ltd -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Recycler In Delhi"
                 android:gravity="center"
+                android:text="Recycler in NCR"
+                android:textColor="@color/black"
                 android:textSize="30sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
-            <!-- Bharat Recycling Pvt Ltd -->
             <LinearLayout
                 android:id="@+id/linear1"
                 android:layout_width="match_parent"
