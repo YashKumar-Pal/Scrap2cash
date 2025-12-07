@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_header_main ,R.id.nav_home,R.id.nav_1,R.id.nav_2,R.id.nav_3,R.id.nav_4,R.id.nav_5,R.id.nav_6, R.id.nav_7,R.id.nav_8, R.id.nav_9, R.id.nav_10/*,R.id.nav_11*/)
+                R.id.nav_home,R.id.nav_1,R.id.nav_2,R.id.nav_3,R.id.nav_4,R.id.nav_5,R.id.login, R.id.nav_7,R.id.nav_8, R.id.nav_9, R.id.nav_10/*,R.id.nav_11*/)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -91,6 +91,9 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+    public void login_signup(){
+//        Intent
     }
 //    @SuppressLint("MissingSuperCall")
 //    @Override

@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.example.scrap2cash.ui.home.findarecycler.findarecyclerFragment;
 import com.example.scrap2cash.ui.home.PredictPrice.predictprice;
-import com.example.scrap2cash.ui.home.historyhome.historyhome;
 import com.example.scrap2cash.ui.home.stack.stackfragment;
 
 public class ViewPagerhomebottomAdapter extends FragmentStateAdapter {
@@ -20,7 +20,7 @@ public class ViewPagerhomebottomAdapter extends FragmentStateAdapter {
     switch (position){
         case 0: return new predictprice();
         case 1: return new stackfragment();
-        case 2: return  new historyhome();
+        case 2: return  new findarecyclerFragment();
         default: return new predictprice();
     }
     }

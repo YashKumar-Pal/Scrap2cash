@@ -1,6 +1,5 @@
-package com.example.scrap2cash.ui.home.historyhome;
+package com.example.scrap2cash.ui.historyhome;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

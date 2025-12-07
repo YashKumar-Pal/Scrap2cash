@@ -1,4 +1,4 @@
-package com.example.scrap2cash.ui.findarecycler;
+package com.example.scrap2cash.ui.home.findarecycler;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

@@ -11,8 +11,8 @@
         android:icon="@drawable/ic_stack"
         android:title="Stack" />
     <item
-        android:id="@+id/nav_login"
-        android:icon="@drawable/user_circle"
-        android:title="Account"/>
+        android:id="@+id/nav_find_recycler"
+        android:icon="@drawable/find_icon"
+        android:title="Find Recycler"/>
 
 </menu>

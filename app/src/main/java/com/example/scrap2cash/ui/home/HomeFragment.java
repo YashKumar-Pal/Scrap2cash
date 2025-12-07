@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
                 switch (position){
                     case 0: bnview.setSelectedItemId(R.id.nav_home);break;
                     case 1: bnview.setSelectedItemId(R.id.nav_stack);break;
-                    case 2: bnview.setSelectedItemId(R.id.nav_login);break;
+                    case 2: bnview.setSelectedItemId(R.id.nav_find_recycler);break;
                 }
             }
         });

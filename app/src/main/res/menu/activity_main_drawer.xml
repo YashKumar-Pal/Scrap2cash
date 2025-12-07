@@ -3,11 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view"
-
     >
 
     <group android:checkableBehavior="single"
         android:id="@+id/group_drawer">
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/user_circle"
+            android:title="Account"/>
         <item
             android:id="@+id/nav_home"
             android:title="@string/menu_home2"
@@ -41,15 +44,11 @@
             android:title="@string/menu_5"
             android:icon="@drawable/tips_icon"
             />
-        <item
-            android:id="@+id/nav_6"
-            android:title="Find a Recycler"
-            android:icon="@drawable/find_icon"
-            />
-        <item
-            android:id="@+id/nav_login"
-            android:icon="@drawable/user_circle"
-            android:title="Account"/>
+<!--        <item-->
+<!--            android:id="@+id/nav_6"-->
+<!--            android:title="Find a Recycler"-->
+<!--            android:icon="@drawable/find_icon"-->
+<!--            />-->
 
         <item
             android:id="@+id/nav_7"

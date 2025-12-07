@@ -38,10 +38,15 @@
         android:name="com.example.scrap2cash.ui.ecotips.ecotipsfragment"
         android:label="@string/menu_5"
         tools:layout="@layout/fragment_ecotips" />
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.scrap2cash.ui.historyhome.historyhome"
+        android:label="Account"
+        tools:layout="@layout/fragment_historyhome"/>
 
     <fragment
         android:id="@+id/nav_6"
-        android:name="com.example.scrap2cash.ui.findarecycler.findarecyclerFragment"
+        android:name="com.example.scrap2cash.ui.home.findarecycler.findarecyclerFragment"
         android:label="@string/menu_6"
         tools:layout="@layout/fragment_findarecycler" />
     <fragment

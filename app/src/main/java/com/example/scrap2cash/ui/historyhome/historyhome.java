@@ -1,4 +1,4 @@
-package com.example.scrap2cash.ui.home.historyhome;
+package com.example.scrap2cash.ui.historyhome;
 
 import static android.app.Activity.RESULT_OK;
 

@@ -5,8 +5,12 @@
     android:layout_height="150dp"
     android:background="#1B5E20"
     android:gravity="center_vertical"
+    android:onClick="login_signup"
     android:orientation="vertical">
-
+<!-- <LinearLayout-->
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,7 +29,11 @@
 
 
 
-        <!-- Profile Image -->
+<!--     <LinearLayout-->
+<!--         android:layout_width="match_parent"-->
+<!--         android:layout_height="match_parent"-->
+<!--         android:orientation="vertical"-->
+<!--         android:gravity="center">-->
 <!--        <ImageView-->
 <!--            android:id="@+id/profileImage"-->
 <!--            android:layout_width="80dp"-->
@@ -53,4 +61,6 @@
 <!--            android:layout_height="wrap_content"-->
 <!--            android:hint="Your Email"-->
 <!--            />-->
+<!--     </LinearLayout>-->
+<!-- </LinearLayout>-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
