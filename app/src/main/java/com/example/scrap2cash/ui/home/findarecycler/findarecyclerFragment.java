@@ -45,12 +45,12 @@ public class findarecyclerFragment extends Fragment {
 
         // Click listeners
         linear1.setOnClickListener(v -> showdialogformap("28.707373,77.275528")); //bharat recycling pvt ltd
-        linear2.setOnClickListener(v -> showdialogformap("19.0760,72.8777")); // Mumbai
-        linear3.setOnClickListener(v -> showdialogformap("12.9716,77.5946")); // Bangalore
-        linear4.setOnClickListener(v -> openMap("28.552006,77.250454")); // New India network
-        linear5.setOnClickListener(v -> openMap("28.524730,77.279234")); // E-Waste recyclers India
-        linear6.setOnClickListener(v -> openMap("26.9124,75.7873")); // Jaipur
-        linear7.setOnClickListener(v -> openMap("28.637012,77.292287")); // E- Waste recycling in India
+        linear2.setOnClickListener(v -> showdialogformap("28.575401,77.340949")); // SS Electronic Scrap
+        linear3.setOnClickListener(v -> showdialogformap("28.455824,77.307746")); // Namo e waste management
+        linear4.setOnClickListener(v -> showdialogformap("28.552006,77.250454")); // New India network
+        linear5.setOnClickListener(v -> showdialogformap("28.524730,77.279234")); // E-Waste recyclers India
+        linear6.setOnClickListener(v -> showdialogformap("28.653334,77.416660")); // Koscove E-Waste Pvt.Ltd
+        linear7.setOnClickListener(v -> showdialogformap("28.637012,77.292287")); // E- Waste recycling in India
 
         return root;
     }
