@@ -125,6 +125,7 @@ public class historyhome extends Fragment {
             }
 
         });
+<<<<<<< HEAD
 //        demobtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -132,6 +133,8 @@ public class historyhome extends Fragment {
 //                startActivity(intent);
 //            }
 //        });
+=======
+>>>>>>> 2d49f9fbf6650febb92d0be11aae824f4fb59785
         return root;
     }
     private void loadsavedprofile(){

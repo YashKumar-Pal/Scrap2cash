@@ -7,7 +7,7 @@
     tools:context=".ui.home.findarecycler.findarecyclerFragment">
 
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
@@ -18,15 +18,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <!-- Bharat Recycling Pvt Ltd -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Recycler In Delhi"
                 android:gravity="center"
+                android:text="Recycler in NCR"
+                android:textColor="@color/black"
                 android:textSize="30sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
-            <!-- Bharat Recycling Pvt Ltd -->
             <LinearLayout
                 android:id="@+id/linear1"
                 android:layout_width="match_parent"
@@ -82,7 +84,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CRUSH CARS"
+                    android:text="SS Electronic Scrap"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:textColor="#E65100" />
@@ -91,7 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#160E0E"
-                    android:text="@string/f_a_r_specialstring" />
+                    android:text="Type: Electronic waste removal and disposar" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -124,7 +126,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Green-O-Tech India™"
+                    android:text="Namo eWaste management ltd."
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:textColor="#2E7D32" />
@@ -133,7 +135,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#160E0E"
-                    android:text="Type: Paper Recycling" />
+                    android:text="Type: E Waste mangement" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -151,48 +153,52 @@
             </LinearLayout>
 
             <!-- New India Network -->
+
+            <!-- E-Waste Recyclers India -->
             <LinearLayout
                 android:id="@+id/linear4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp"
-                android:background="@android:color/white"
-                android:elevation="4dp"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="#F3E5F5">
+                android:background="@android:color/white"
+                android:backgroundTint="#F3E5F5"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="12dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New India Network"
-                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
                     android:textSize="18sp"
-                    android:textColor="#6A1B9A" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#160E0E"
-                    android:text="Type: E-waste" />
+                    android:text="Type: E-waste"
+                    android:textColor="#160E0E" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#160E0E"
-                    android:text="Address: Nehru Place" />
+                    android:text="Address: Nehru Place"
+                    android:textColor="#160E0E" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#160E0E"
-                    android:text="Hours: Opens 10 AM Mon" />
+                    android:text="Hours: Opens 10 AM Mon"
+                    android:textColor="#160E0E" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#160E0E"
-                    android:text="Rating: ⭐ 5.0 (16 reviews)" />
+                    android:text="Rating: ⭐ 5.0 (16 reviews)"
+                    android:textColor="#160E0E" />
             </LinearLayout>
 
-            <!-- E-Waste Recyclers India -->
             <LinearLayout
                 android:id="@+id/linear5"
                 android:layout_width="match_parent"
@@ -249,7 +255,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="JAAGRUTI Waste Paper Recycling"
+                    android:text="Koscove E-Waste Pvt.Ltd."
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:textColor="#1565C0" />
@@ -258,7 +264,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#160E0E"
-                    android:text="Type: Paper Recycling" />
+                    android:text="Type: Recycling center" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

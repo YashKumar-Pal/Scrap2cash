@@ -18,8 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
         android:gravity="center"
-        android:text="Hey' User are  sure want to see this dealer's location"
-        android:textColor="#0FDB19"
+        android:text="Hey' User are you sure want to see this dealer's location"
+        android:textColor="#1E88E5"
         android:textSize="22dp" />
 
     <LinearLayout

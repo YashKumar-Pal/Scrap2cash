@@ -22,7 +22,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#49A436"
+                android:backgroundTint="#00000000"
                 app:cardCornerRadius="15dp"
                 android:padding="5dp"
                 app:cardElevation="6dp">
@@ -49,8 +49,8 @@
                         android:id="@+id/profileImage"
                         android:layout_width="140dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/user_circle"
-                        android:background="@drawable/bottomnvimg_bn"
+                        android:src="@drawable/user_image_account_box_24"
+                        android:background="#00000000"
                         android:layout_marginLeft="30dp"
                         android:padding="5dp"
                         android:layout_gravity="center_horizontal"
@@ -81,15 +81,16 @@
                                 android:layout_weight="3"
                                 android:id="@+id/logoutll"
                                 android:layout_height="match_parent">
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/logoutbutton"
-                           android:layout_gravity="top"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:background="@android:color/transparent"
-                            android:src="@drawable/logout_icon"/>
+
+                                <ImageButton
+                                    android:id="@+id/logoutbutton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="top"
+                                    android:background="@android:color/transparent"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:src="@drawable/logout_icon" />
                             </LinearLayout>
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -118,6 +119,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
                         android:background="@drawable/roundedbox_background"
                         android:hint="Your Name"
                         android:inputType="textPersonName"
@@ -141,7 +144,9 @@
                         android:id="@+id/emailEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
                         android:background="@drawable/roundedbox_background"
                         android:hint="Your Email"
                         android:inputType="textEmailAddress"
@@ -152,10 +157,11 @@
                     <!-- Save Button -->
                     <Button
                         android:id="@+id/saveButton"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
                         android:background="@drawable/add_itemround"
+                        android:layout_gravity="center"
                         android:text="Save"
                         android:textSize="20sp" />
 
