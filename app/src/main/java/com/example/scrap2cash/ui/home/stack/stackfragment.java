@@ -26,9 +26,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -36,10 +39,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
+import com.example.scrap2cash.Appstateloginviewmodel;
 import com.example.scrap2cash.R;
 import com.example.scrap2cash.databinding.FragmentStackBinding;
 import com.example.scrap2cash.ui.home.SharedDataViewModel;
 import com.example.scrap2cash.ui.home.StackDB;
+import com.example.scrap2cash.ui.loginactivies.loginactivities;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
@@ -47,6 +52,9 @@ import java.util.ArrayList;
 
 
 public class stackfragment extends Fragment {
+    public Appstateloginviewmodel login2;
+    Button signup,login,skip;
+    Animation tapanim;
     StackViewModel viewModel;
     Uri fimg=null;
     private static final int REQUEST_IMAGE = 100;
@@ -78,6 +86,15 @@ public class stackfragment extends Fragment {
         binding = FragmentStackBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         stackDB = new StackDB(requireContext());
+//        login2 = new ViewModelProvider(requireActivity()).get(Appstateloginviewmodel.class);
+//        login2.getBoolLiveData().observe(getViewLifecycleOwner(), isLoggedIn -> {
+//            if (isLoggedIn) {
+//                Log.d("HomeFragment", "Login flag is TRUE");
+//            } else {
+//                showloginpopup();
+//            }
+//        });
+        tapanim= AnimationUtils.loadAnimation(requireContext(),R.anim.tap_anim);
         viewModel= new ViewModelProvider(this).get(StackViewModel.class);
         viewModel.loadItemsFromDB(stackDB);
         shareVM=new ViewModelProvider(requireActivity()).get(SharedDataViewModel.class);
@@ -355,4 +372,42 @@ private void fbtnadd(){
             recyclerview.scrollToPosition(arrstack.size() - 1);
         });
     }
+    private void showloginpopup(){
+        Dialog dialog= new Dialog(requireContext());
+        dialog.setContentView(R.layout.login_alertdialog);
+        int width = LinearLayout.LayoutParams.MATCH_PARENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        dialog.getWindow().setLayout(width, height);
+        dialog.show();
+        skip=dialog.findViewById(R.id.skip2);
+//        SpannableString spannableString=new SpannableString("   Continue with Google");
+//        Drawable icon= ContextCompat.getDrawable(requireContext(),R.drawable.google_g_icon);
+//        icon.setBounds(0,0,icon.getIntrinsicWidth(),icon.getIntrinsicHeight());
+//        ImageSpan imageSpan=new ImageSpan(icon, ImageSpan.ALIGN_BOTTOM);
+//        spannableString.setSpan(imageSpan,1,2, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+//        cwgoogle.setText(spannableString);
+        signup=dialog.findViewById(R.id.signup);
+        login=dialog.findViewById(R.id.login);
+        signup.setOnClickListener(view-> signup());
+        login.setOnClickListener(view->login());
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+    public void login(){
+        Intent intent= new Intent(getContext(), loginactivities.class);
+        login.startAnimation(tapanim);
+        intent.putExtra("fragmentno",1);
+        startActivityForResult(intent,100);
+    }
+    public void signup(){
+        signup.startAnimation(tapanim);
+        Intent intent=new Intent(getContext(), loginactivities.class);
+        intent.putExtra("fragmentno",2);
+        startActivityForResult(intent,100);
+    }
+
 }

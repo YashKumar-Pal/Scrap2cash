@@ -1,13 +1,17 @@
 package com.example.scrap2cash.ui.home.findarecycler;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -15,10 +19,15 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.scrap2cash.Appstateloginviewmodel;
 import com.example.scrap2cash.R;
 import com.example.scrap2cash.databinding.FragmentFindarecyclerBinding;
+import com.example.scrap2cash.ui.loginactivies.loginactivities;
 
 public class findarecyclerFragment extends Fragment {
+    public Appstateloginviewmodel login2;
+    Button signup,login,skip;
+    Animation tapanim;
 
     private FragmentFindarecyclerBinding binding;
 
@@ -33,6 +42,15 @@ public class findarecyclerFragment extends Fragment {
         // Binding inflate
         binding = FragmentFindarecyclerBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        login2 = new ViewModelProvider(requireActivity()).get(Appstateloginviewmodel.class);
+//        login2.getBoolLiveData().observe(getViewLifecycleOwner(), isLoggedIn -> {
+//            if (isLoggedIn) {
+//                Log.d("HomeFragment", "Login flag is TRUE");
+//            } else {
+//                showloginpopup();
+//            }
+//        });
+        tapanim= AnimationUtils.loadAnimation(requireContext(),R.anim.tap_anim);
 //from this to : bhavesh
         // LinearLayouts IDs find karna
         LinearLayout linear1 = root.findViewById(R.id.linear1);
@@ -98,5 +116,42 @@ public class findarecyclerFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+    private void showloginpopup(){
+        Dialog dialog= new Dialog(requireContext());
+        dialog.setContentView(R.layout.login_alertdialog);
+        int width = LinearLayout.LayoutParams.MATCH_PARENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        dialog.getWindow().setLayout(width, height);
+        dialog.show();
+        skip=dialog.findViewById(R.id.skip2);
+//        SpannableString spannableString=new SpannableString("   Continue with Google");
+//        Drawable icon= ContextCompat.getDrawable(requireContext(),R.drawable.google_g_icon);
+//        icon.setBounds(0,0,icon.getIntrinsicWidth(),icon.getIntrinsicHeight());
+//        ImageSpan imageSpan=new ImageSpan(icon, ImageSpan.ALIGN_BOTTOM);
+//        spannableString.setSpan(imageSpan,1,2, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+//        cwgoogle.setText(spannableString);
+        signup=dialog.findViewById(R.id.signup);
+        login=dialog.findViewById(R.id.login);
+        signup.setOnClickListener(view-> signup());
+        login.setOnClickListener(view->login());
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+    public void login(){
+        Intent intent= new Intent(getContext(), loginactivities.class);
+        login.startAnimation(tapanim);
+        intent.putExtra("fragmentno",1);
+        startActivityForResult(intent,100);
+    }
+    public void signup(){
+        signup.startAnimation(tapanim);
+        Intent intent=new Intent(getContext(), loginactivities.class);
+        intent.putExtra("fragmentno",2);
+        startActivityForResult(intent,100);
     }
 }

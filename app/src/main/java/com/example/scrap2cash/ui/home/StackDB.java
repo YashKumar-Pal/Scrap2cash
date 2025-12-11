@@ -10,6 +10,7 @@ import android.net.Uri;
 import com.example.scrap2cash.ui.home.stack.stackmodel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StackDB extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "scrap2cash.db";
@@ -28,11 +29,23 @@ public class StackDB extends SQLiteOpenHelper {
     // Profile Table  (yeh profile wale ke liye banaya hai abhi se) optional
     public static final String TABLE_PROFILE = "user_profile";
     public static final String COL_NAME = "name";
+    public static final String COL_DOB="dob";
     public static final String COL_EMAIL = "email";
     private static final String COL_PH_NO= "ph_no";
     public static final String COL_PROFILE_URI = "profile_uri";
     private static final String TABLE_IDPASSWORD= "user_idpassword";
     private static final String COL_PASSWORD="password";
+    public static final String TABLE_NAME = "MyTable";
+
+
+
+    public static final String TABLE_APP_STATE = "AppState";
+    public static final String COL_BOOL2 = "isLoggedIn";
+
+
+
+
+
 
     public StackDB(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -57,17 +70,31 @@ public class StackDB extends SQLiteOpenHelper {
         String createProfileTable = "CREATE TABLE " + TABLE_PROFILE + " ("
                 + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COL_NAME + " TEXT, "
+                +COL_DOB + " TEXT, "
                 + COL_EMAIL + " TEXT, "
                 +COL_PH_NO +"INTEGER , "
                 + COL_PROFILE_URI + " TEXT)";
         db.execSQL(createProfileTable);
-
 
         String createIdPasswordTable=" CREATE TABLE " +TABLE_IDPASSWORD +"("
               + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COL_EMAIL +"TEXT, "
               + COL_PASSWORD + "TEXT) ";
         db.execSQL(createIdPasswordTable);
+
+
+
+
+
+        String createTable = "CREATE TABLE " + TABLE_APP_STATE + " (" +
+                COL_BOOL2 + " INTEGER)";
+        db.execSQL(createTable);
+
+        // ✅ Default value false (0)
+        ContentValues cv = new ContentValues();
+        cv.put(COL_BOOL2, 0);
+        db.insert(TABLE_APP_STATE, null, cv);
+
     }
 
     @Override
@@ -76,6 +103,33 @@ public class StackDB extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILE);
         onCreate(db);
     }
+
+
+    // ✅ Update bool value
+    public void setBool(boolean value) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COL_BOOL2, value ? 1 : 0);
+        db.update(TABLE_APP_STATE, cv, null, null);
+        db.close();
+    }
+
+    // ✅ Read bool value
+    public boolean getBool() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT " + COL_BOOL2 + " FROM " + TABLE_APP_STATE, null);
+        boolean result = false;
+        if (cursor.moveToFirst()) {
+            result = cursor.getInt(0) == 1;
+        }
+        cursor.close();
+        db.close();
+        return result;
+    }
+
+
+
+
     // Insert Scrap Item (yeh item daalne ke liye hai)
     public long insertScrap(stackmodel item) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -144,20 +198,22 @@ public class StackDB extends SQLiteOpenHelper {
     }
 
     // Optional: Insert/Update Profile (yeh abhi kaam ka nahi hai ajb tak tu next activiyt na bna le save profile ke liye.)
-    public void saveProfile(String name, String email, Uri profileUri) {
+    public void saveProfile(String name,String dob, String email, Uri profileUri) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_PROFILE, null, null); // Only one profile
 
         ContentValues cv = new ContentValues();
         cv.put(COL_NAME, name);
+        cv.put(COL_DOB,dob);
         cv.put(COL_EMAIL, email);
         cv.put(COL_PROFILE_URI, profileUri != null ? profileUri.toString() : null);
         db.insert(TABLE_PROFILE, null, cv);
     }
-    public void updateProfile(int id, String name, String email, Uri profileImage){
+    public void updateProfile(int id, String name,String dob, String email, Uri profileImage){
         SQLiteDatabase writableDb=this.getWritableDatabase();
         ContentValues cv= new ContentValues();
         cv.put(StackDB.COL_NAME,name);
+        cv.put(StackDB.COL_DOB,dob);
         cv.put(StackDB.COL_EMAIL,email);
         cv.put(StackDB.COL_PROFILE_URI,profileImage !=null ? profileImage.toString():null);
         writableDb.update(TABLE_PROFILE,cv,StackDB.COL_ID+"=?",new String[]{String.valueOf(id)});
@@ -167,8 +223,8 @@ public class StackDB extends SQLiteOpenHelper {
         writable.delete(TABLE_PROFILE, StackDB.COL_ID+ "=?",new String[]{String.valueOf(id)});
     }
 
-//    public Cursor getProfile() {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        return db.rawQuery("SELECT * FROM " + TABLE_PROFILE + " LIMIT 1", null);
-//    }
+    public Cursor getProfile() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_PROFILE + " LIMIT 1", null);
+    }
 }

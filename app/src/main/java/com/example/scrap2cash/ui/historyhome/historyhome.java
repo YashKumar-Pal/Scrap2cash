@@ -31,6 +31,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.scrap2cash.Appstateloginviewmodel;
 import com.example.scrap2cash.R;
 import com.example.scrap2cash.databinding.FragmentHistoryhomeBinding;
 import com.example.scrap2cash.ui.loginactivies.loginactivities;
@@ -40,11 +41,12 @@ import com.example.scrap2cash.ui.home.StackDB;
 import java.io.File;
 
 public class historyhome extends Fragment {
+    public Appstateloginviewmodel login2;
     private ImageView profileImage;
     private static final int REQUEST_IMAGE = 100;
     private Uri cameraImageUri;
     private ImageButton logout;
-    private EditText nameEditText, emailEditText;
+    private EditText nameEditText,dobedittext, emailEditText;
     private Button saveButton;
     private static final int PICK_IMAGE = 100;
     private Uri imageUri;
@@ -69,14 +71,16 @@ public class historyhome extends Fragment {
         View root = binding.getRoot();
         hviewmodel=new ViewModelProvider(this).get(HistoryhomeViewModel.class);
         hviewmodel.init(requireContext());
+        login2 = new ViewModelProvider(requireActivity()).get(Appstateloginviewmodel.class);
+
         tapanim= AnimationUtils.loadAnimation(requireContext(),R.anim.tap_anim);
         profileImage=binding.profileImage;
         nameEditText=binding.nameEditText;
+        dobedittext=binding.dobEditText;
         emailEditText=binding.emailEditText;
         saveButton=binding.saveButton;
         logout=binding.logoutbutton;
         logoutll=binding.logoutll;
-        Button demobtn=binding.demo;
         selectimagetext=binding.changeImageText;  // kaam main le sakte h
         id=-1;
         loadsavedprofile();
@@ -121,13 +125,13 @@ public class historyhome extends Fragment {
             }
 
         });
-        demobtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(getContext(), loginactivities.class);
-                startActivity(intent);
-            }
-        });
+//        demobtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent= new Intent(getContext(), loginactivities.class);
+//                startActivity(intent);
+//            }
+//        });
         return root;
     }
     private void loadsavedprofile(){
@@ -135,12 +139,14 @@ public class historyhome extends Fragment {
         if(cursor != null && cursor.moveToFirst()){
             id=cursor.getInt(cursor.getColumnIndexOrThrow(StackDB.COL_ID));
             String namedemo=cursor.getString(cursor.getColumnIndexOrThrow(StackDB.COL_NAME));
+            String dobdemo=cursor.getString(cursor.getColumnIndexOrThrow(StackDB.COL_DOB));
             String emaildemo=cursor.getString(cursor.getColumnIndexOrThrow(StackDB.COL_EMAIL));
             String uriStringdemo= cursor.getString(cursor.getColumnIndexOrThrow(StackDB.COL_PROFILE_URI));
             Uri imagedemo=uriStringdemo != null ? Uri.parse(uriStringdemo):null;
 //        profileImage = root.findViewById(R.id.profileImage);
-            if (namedemo != null && emaildemo != null && imagedemo != null ){
+            if (namedemo != null && emaildemo != null && imagedemo != null && dobdemo !=null ){
                 nameEditText.setText(namedemo);
+                dobedittext.setText(dobdemo);
                 emailEditText.setText(emaildemo);
                 Glide.with(requireContext())
                         .load(imagedemo)
@@ -152,21 +158,27 @@ public class historyhome extends Fragment {
 //                profileImage.setImageURI(imagedemo);
             }
             else Toast.makeText(getContext(), "no data found", Toast.LENGTH_SHORT).show();}
+        if(cursor !=null){
+            cursor.close();
+        }
     }
     private void saveprofile(){
         String name = nameEditText.getText().toString();
         String email = emailEditText.getText().toString();
-        if(name.isEmpty() || email.isEmpty()){
+        String dob=dobedittext.getText().toString();
+        if(name.isEmpty() && email.isEmpty() && dob.isEmpty()){
             Toast.makeText(getContext(), "Please enter all fields", Toast.LENGTH_SHORT).show();
-            return;
+//            return;
         } else if (imageUri ==null) {
             Toast.makeText(getContext(), "select image", Toast.LENGTH_SHORT).show();
         } else{
             Toast.makeText(getContext(), "Profile Saved", Toast.LENGTH_SHORT).show();
-            hviewmodel.saveProfile2(nameEditText.getText().toString(),emailEditText.getText().toString(),imageUri);
+            hviewmodel.saveProfile2(nameEditText.getText().toString(),dobedittext.getText().toString(), emailEditText.getText().toString(),imageUri);
+            login2.setBool(true);
             selectimagetext.setText("Update Image");
             saveButton.setText("Update Profile");
-            id++;
+//            id++;
+            loadsavedprofile();
         }// You can save this data to SharedPreferences or Firebase here
     }
     private void updateprofile() {
@@ -179,10 +191,11 @@ public class historyhome extends Fragment {
             Toast.makeText(getContext(), "select image", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(getContext(), "Profile Updated", Toast.LENGTH_SHORT).show();
-            hviewmodel.updateprofile(id, nameEditText.getText().toString(), emailEditText.getText().toString(), imageUri);
+            hviewmodel.updateprofile(id, nameEditText.getText().toString(),dobedittext.getText().toString(), emailEditText.getText().toString(), imageUri);
                 selectimagetext.setText("Update Image");
                 saveButton.setText("Update Profile");
-
+                login2.setBool(true);
+           loadsavedprofile();
         }
     }
 
@@ -237,8 +250,10 @@ public class historyhome extends Fragment {
             public void onClick(View v) {
                 yesbtn.setAnimation(tapanim);
                 hviewmodel.deleteprofile(id);
+                login2.setBool(false);
                 profileImage.setImageResource(R.drawable.user_circle);
                 nameEditText.getText().clear();
+                dobedittext.getText().clear();
                 emailEditText.getText().clear();
                 saveButton.setText("Save");
                 dialog.dismiss();

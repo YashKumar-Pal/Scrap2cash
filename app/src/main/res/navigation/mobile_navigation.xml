@@ -49,9 +49,20 @@
         android:name="com.example.scrap2cash.ui.home.findarecycler.findarecyclerFragment"
         android:label="@string/menu_6"
         tools:layout="@layout/fragment_findarecycler" />
+<!--    <fragment-->
+<!--        android:id="@+id/nav_7"-->
+<!--        android:name="com.example.scrap2cash.ui.setting.Setting"-->
+<!--        android:label="Setting"-->
+<!--        tools:layout="@layout/fragment_setting"/>-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_9"-->
+<!--        android:name="com.example.scrap2cash.FeedbackFragment"-->
+<!--        android:label="Feedback"-->
+<!--        tools:layout="@layout/fragment_feedback"/>-->
     <fragment
-        android:id="@+id/nav_7"
-        android:name="com.example.scrap2cash.ui.setting.Setting"
-        android:label="Setting"
-        tools:layout="@layout/fragment_setting"/>
+        android:id="@+id/nav_8"
+        tools:layout="@layout/dialog_rate_us"/>
+    <fragment
+        android:id="@+id/nav_10"
+        />
 </navigation>

@@ -35,10 +35,10 @@ android {
 
 dependencies {
     // Existing dependencies
+    implementation("com.android.volley:volley:1.2.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-
     // Navigation Component
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.3")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.3")

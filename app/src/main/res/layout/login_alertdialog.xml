@@ -5,14 +5,21 @@
     android:background="#000"
     android:padding="10dp"
     android:layout_height="wrap_content">
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@mipmap/scrap2cash_icon2_round" />-->
+
     <ImageView
+        android:id="@+id/closebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/closebtn"
-        android:src="@drawable/close_icon"
-        android:layout_gravity="end"
         android:clickable="true"
-        android:focusable="true"/>
+        android:layout_gravity="center_horizontal"
+        android:focusable="true"
+        android:src="@mipmap/scrap2cash_icon2_round" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,11 +34,11 @@
         android:layout_marginTop="25dp"
         android:layout_height="wrap_content"
         android:background="@drawable/login_popup_buttonbg"
-        android:text="Continue with Google"
+        android:text="skip"
         android:textSize="22sp"
         android:textColor="#000"
         android:textStyle="bold"
-        android:id="@+id/cwgoogle"/>
+        android:id="@+id/skip2"/>
   <androidx.appcompat.widget.AppCompatButton
       android:layout_width="match_parent"
       android:layout_height="wrap_content"

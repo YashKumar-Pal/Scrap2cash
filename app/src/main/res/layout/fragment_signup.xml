@@ -1,29 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.loginactivies.fragments.Signup">
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:id="@+id/cwgooglemainll">
+        android:padding="24dp"
+        tools:context=".ui.loginactivies.fragments.Signup">
 
+        <!-- App Logo -->
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/scrap2cash_icon2_round"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="32dp"/>
 
-    </LinearLayout>
+        <!-- First name -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/firstnameLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="First Name"
+            app:layout_constraintTop_toBottomOf="@id/logoImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#4CAF50"
-        android:gravity="bottom|center_horizontal"
-        android:text="Continue"
-        android:textColor="#000"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/firstnameUsername2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-</LinearLayout>
+        <!-- Last name -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lastnameLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Last Name"
+            app:layout_constraintTop_toBottomOf="@id/firstnameLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lastUsername2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Password -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/datebirthLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Date of Birth"
+            app:layout_constraintTop_toBottomOf="@id/lastnameLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/datebirth2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Login Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttoncontinue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Continue"
+            style="@style/Widget.MaterialComponents.Button"
+            app:layout_constraintTop_toBottomOf="@id/datebirthLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

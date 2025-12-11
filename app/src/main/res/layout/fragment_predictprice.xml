@@ -96,7 +96,6 @@
                                 android:layout_marginStart="19dp"
                                 android:layout_marginEnd="19dp"
                                 android:background="@drawable/roundedbox_background"
-
                                 android:spinnerMode="dropdown" />
 
                             <TextView
@@ -128,9 +127,28 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginHorizontal="19dp"
                                 android:background="@drawable/roundedbox_background"
-                                android:hint="enter"
+                                android:hint="Ex- M14 5G"
                                 android:id="@+id/modelid"
                                 android:textColor="#4CAF50"
+                                android:textColorHint="#EBE2E2"
+                                android:maxEms="5" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="19dp"
+                                android:layout_marginTop="10dp"
+                                android:text="Build Quality*"
+                                android:textColor="#140B0B"
+                                android:textSize="25sp" />
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="19dp"
+                                android:background="@drawable/roundedbox_background"
+                                android:hint="Rate in number(1-5)"
+                                android:id="@+id/buildquality"
+                                android:textColor="#4CAF50"
+                                android:inputType="numberDecimal"
                                 android:textColorHint="#EBE2E2"
                                 android:maxEms="5" />
 
@@ -148,17 +166,37 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginHorizontal="19dp"
                                 android:background="@drawable/roundedbox_background"
-                                android:hint="2 Year"
+                                android:hint="In Year(1.0-15.0)"
+                                android:id="@+id/user_lifespan"
                                 android:textColor="#000"
+                                android:inputType="number"
                                 android:textColorHint="#EBE2E2"
                                 android:maxEms="5" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="19dp"
+                                android:layout_marginTop="10dp"
+                                android:text="Usage Pattern*"
+                                android:textColor="#140B0B"
+                                android:textSize="25sp" />
+                            <Spinner
+                                android:id="@+id/usagepattern_spinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="19dp"
+                                android:layout_marginEnd="19dp"
+                                android:background="@drawable/roundedbox_background"
+                                android:spinnerMode="dropdown" />
+
+
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="19dp"
                                 android:layout_marginTop="10dp"
-                                android:text="Expiry Years"
+                                android:text="Expiry Years*"
                                 android:textColor="#140B0B"
                                 android:textSize="25sp" />
 
@@ -168,7 +206,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginHorizontal="19dp"
                                 android:background="@drawable/roundedbox_background"
-                                android:hint="enter"
+                                android:hint=" In Year(1.9-16.0)"
                                 android:textColor="#000"
                                 android:textColorHint="#EBE2E2"
                                 android:inputType="numberDecimal"
@@ -189,10 +227,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginHorizontal="19dp"
                                 android:background="@drawable/roundedbox_background"
-                                android:hint="enter"
+                                android:hint="Rate(1-5)"
                                 android:textColor="#000"
                                 android:textColorHint="#EBE2E2"
-                                android:inputType="textShortMessage"
+                                android:inputType="numberDecimal"
                                 android:maxEms="20" />
 
                             <TextView
@@ -210,7 +248,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginHorizontal="19dp"
                                 android:background="@drawable/roundedbox_background"
-                                android:hint="10000"
+                                android:hint="10000(INR)"
                                 android:textColor="#000"
                                 android:textColorHint="#EBE2E2"
                                 android:inputType="numberDecimal"
@@ -221,7 +259,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="19dp"
                                 android:layout_marginTop="10dp"
-                                android:text="Used Duration"
+                                android:text="Used Duration*"
                                 android:textColor="#140B0B"
                                 android:textSize="25sp" />
 
@@ -231,11 +269,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginHorizontal="19dp"
                                 android:background="@drawable/roundedbox_background"
-                                android:hint="1"
+                                android:hint="In Year(1.0-12.0)"
                                 android:textColor="#000"
                                 android:textColorHint="#EBE2E2"
                                 android:inputType="numberDecimal"
-                                android:maxEms="3" />
+                                android:maxEms="5" />
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:id="@+id/selectimgll"

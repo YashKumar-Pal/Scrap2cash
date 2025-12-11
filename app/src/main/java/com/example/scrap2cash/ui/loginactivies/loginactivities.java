@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 //import androidx.activity.EdgeToEdge;
@@ -21,12 +18,12 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.scrap2cash.R;
 import com.example.scrap2cash.ui.loginactivies.fragments.Login;
 import com.example.scrap2cash.ui.loginactivies.fragments.Signup;
-import com.example.scrap2cash.ui.loginactivies.fragments.cwgoogle;
 
 public class loginactivities extends AppCompatActivity {
 
     private static final int PICK_IMAGE = 100;
     private Uri imageUri;
+
     int fragmentno;
 
     @Override
@@ -53,14 +50,13 @@ public class loginactivities extends AppCompatActivity {
         FragmentManager fm= getSupportFragmentManager();
         FragmentTransaction ft= fm.beginTransaction();
         if (fragmentno==1){
-           ft.add(R.id.loginfl,new cwgoogle());
+           ft.add(R.id.loginfl,new Login());
         } else if (fragmentno==2) {
            ft.add(R.id.loginfl,new Signup());
-        }else if(fragmentno==3) {
-           ft.add(R.id.loginfl,new Login());
         }else{
             Toast.makeText(this, "fragment error!", Toast.LENGTH_SHORT).show();
         }
+        ft.commit();
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
