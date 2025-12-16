@@ -19,7 +19,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Bharat Recycling Pvt Ltd -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -29,47 +28,6 @@
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
-            <LinearLayout
-                android:id="@+id/linear1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp"
-                android:background="@android:color/white"
-                android:elevation="4dp"
-                android:layout_marginBottom="12dp"
-                android:backgroundTint="#E0F7FA"
-                tools:ignore="InvalidId">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Bharat Recycling Pvt Ltd"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="#00796B" />
-
-                <TextView android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#160E0E"
-                    android:text="@string/f_a_r_specialstring2" />
-                <TextView android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#160E0E"
-                    android:text="Address: 119/1 Gali No. 19, North Ghonda" />
-                <TextView
-                    android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                    android:textColor="#160E0E"
-                android:text="Hours: Open till 5:30 PM" />
-                <TextView android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rating: ⭐ 4.8 (17 reviews)"
-                    android:textColor="#160E0E"/>
-            </LinearLayout>
-
-            <!-- CRUSH CARS -->
             <LinearLayout
                 android:id="@+id/linear2"
                 android:layout_width="match_parent"
@@ -98,12 +56,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#160E0E"
-                    android:text="Address: HB Twin Tower, Netaji Subhash Place, Pitampura" />
+                    android:text="Address: Main market, Nithari Village, Sector 31, Noida" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#160E0E"
-                    android:text="Hours: Open till 7 PM" />
+                    android:text="Contact no. 08826219127" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -140,12 +98,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#160E0E"
-                    android:text="Address: Raghu Nagar, Dabri" />
+                    android:text="Address: Mile Stone, 14 1, Mathura Rd, Faridabad, Haryana " />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#160E0E"
-                    android:text="Hours: Opens 9:30 AM Mon" />
+                    android:text="Contact no. 08130393629" />
                 <TextView android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#160E0E"
@@ -169,7 +127,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New India Network"
+                    android:text="Hin Green E Waste Recycling Pvt Ltd."
                     android:textColor="#6A1B9A"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -183,13 +141,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Address: Nehru Place"
+                    android:text="Address:Partapur Meerut"
                     android:textColor="#160E0E" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hours: Opens 10 AM Mon"
+                    android:text="Contact no. 1800 274 8777"
                     android:textColor="#160E0E" />
 
                 <TextView
@@ -213,7 +171,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="E-Waste Recyclers India"
+                    android:text="KK Electronic Waste Scrap"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:textColor="#C62828" />
@@ -227,12 +185,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#160E0E"
-                    android:text="Address: Okhla Phase I" />
+                    android:text="Address: B block, Sector 63, Noida, Uttar Pradesh" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#160E0E"
-                    android:text="Hours: Opens 12 AM Mon" />
+                    android:text="Contact no. 07017067239" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -240,7 +198,89 @@
                     android:text="Rating: ⭐ 4.0 (33 reviews)" />
             </LinearLayout>
 
-            <!-- JAAGRUTI Waste Paper Recycling -->
+            <!-- Bharat Recycling Pvt Ltd -->
+
+            <LinearLayout
+                android:id="@+id/linear1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="@android:color/white"
+                android:elevation="4dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#E0F7FA"
+                tools:ignore="InvalidId">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sky green waste recycling management"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#00796B" />
+
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="@string/f_a_r_specialstring2" />
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Address: Khasra no 20,21, Peepli khera, Uttar Pradesh" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Contact No. 1800 572 7395" />
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rating: ⭐ 4.8 (17 reviews)"
+                    android:textColor="#160E0E"/>
+            </LinearLayout>
+
+            <!-- E-Waste Recycling in India -->
+            <LinearLayout
+                android:id="@+id/linear8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="@android:color/white"
+                android:elevation="4dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#F1F8E9">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resource E-Waste Solution Pvt Ltd"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#558B2F" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Type: E-waste" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Address: 3rd floor, Plot No. 147, Patparganj Industrial Area, Delhi" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Contact on. 7847853309" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#160E0E"
+                    android:text="Rating: ⭐ 5.0 (3 reviews)" />
+            </LinearLayout>
             <LinearLayout
                 android:id="@+id/linear6"
                 android:layout_width="match_parent"
@@ -269,101 +309,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#160E0E"
-                    android:text="Address: Mansarover Garden" />
+                    android:text="Address: Ground Floor, Sector 69, A-142, Transport Nagar, Noida, Uttar Pradesh" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#160E0E"
-                    android:text="Hours: Open till 6 PM" />
+                    android:text="Contact no. 09990858485" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#160E0E"
                     android:text="Rating: ⭐ 4.0 (9 reviews)" />
-            </LinearLayout>
-
-            <!-- Scrapcardelhi-car Scrap Dealer -->
-            <LinearLayout
-                android:id="@+id/linear7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp"
-                android:background="@android:color/white"
-                android:elevation="4dp"
-                android:layout_marginBottom="12dp"
-                android:backgroundTint="#FFFDE7">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Scrapcardelhi-car Scrap Dealer"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="#FBC02D" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#160E0E"
-                    android:text="Type: Car Scrap" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#160E0E"
-                    android:text="Address: Anand Parbat Industrial Area" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#160E0E"
-                    android:text="Hours: Open till 7 PM" />
-                <TextView
-                    android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                    android:textColor="#160E0E"
-                    android:text="Rating: ⭐ 4.9 (96 reviews)" />
-            </LinearLayout>
-
-            <!-- E-Waste Recycling in India -->
-            <LinearLayout
-                android:id="@+id/linear8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp"
-                android:background="@android:color/white"
-                android:elevation="4dp"
-                android:layout_marginBottom="12dp"
-                android:backgroundTint="#F1F8E9">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="E-Waste Recycling in India"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="#558B2F" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#160E0E"
-                    android:text="Type: E-waste" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#160E0E"
-                    android:text="Address: Preet Vihar" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#160E0E"
-                    android:text="Hours: Opens 10 AM Mon" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#160E0E"
-                    android:text="Rating: ⭐ 5.0 (3 reviews)" />
             </LinearLayout>
 
         </LinearLayout>

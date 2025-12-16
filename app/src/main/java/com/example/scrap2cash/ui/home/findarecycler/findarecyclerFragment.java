@@ -52,23 +52,23 @@ public class findarecyclerFragment extends Fragment {
 //        });
         tapanim= AnimationUtils.loadAnimation(requireContext(),R.anim.tap_anim);
 //from this to : bhavesh
-        // LinearLayouts IDs find karna
+        // LinearLayouts IDs find ki hai
         LinearLayout linear1 = root.findViewById(R.id.linear1);
         LinearLayout linear2 = root.findViewById(R.id.linear2);
         LinearLayout linear3 = root.findViewById(R.id.linear3);
         LinearLayout linear4 = root.findViewById(R.id.linear4);
         LinearLayout linear5 = root.findViewById(R.id.linear5);
         LinearLayout linear6 = root.findViewById(R.id.linear6);
-        LinearLayout linear7 = root.findViewById(R.id.linear7);
+        LinearLayout linear8 = root.findViewById(R.id.linear8);
 
         // Click listeners
-        linear1.setOnClickListener(v -> showdialogformap("28.707373,77.275528")); //bharat recycling pvt ltd
         linear2.setOnClickListener(v -> showdialogformap("28.575401,77.340949")); // SS Electronic Scrap
         linear3.setOnClickListener(v -> showdialogformap("28.455824,77.307746")); // Namo e waste management
-        linear4.setOnClickListener(v -> showdialogformap("28.552006,77.250454")); // New India network
-        linear5.setOnClickListener(v -> showdialogformap("28.524730,77.279234")); // E-Waste recyclers India
+        linear4.setOnClickListener(v -> showdialogformap("28.919437,77.647314")); // hin green
+        linear5.setOnClickListener(v -> showdialogformap("28.615739,77.375349")); // KK Electronic Waste Scrap
+        linear1.setOnClickListener(v -> showdialogformap("28.891788,77.759737")); //Sky Green Waste Recycling
         linear6.setOnClickListener(v -> showdialogformap("28.653334,77.416660")); // Koscove E-Waste Pvt.Ltd
-        linear7.setOnClickListener(v -> showdialogformap("28.637012,77.292287")); // E- Waste recycling in India
+        linear8.setOnClickListener(v -> showdialogformap("28.640395,77.312632")); // Resource E Waste Solution Pvt.Ltd
 
         return root;
     }
