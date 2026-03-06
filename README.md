@@ -16,7 +16,7 @@ EcoApp helps users find nearby e-waste recycling centers and predicts reuse valu
 
 ## 🛠️ Tech Stack
 
-- Android (Java/Kotlin)
+- Android (Java)
 - XML Layouts + ViewBinding
 - Fragment Navigation + Bottom Nav
 - TensorFlow Lite (for AI model)
@@ -28,7 +28,7 @@ EcoApp helps users find nearby e-waste recycling centers and predicts reuse valu
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/Scrap2Cash.git
+   git clone [https://github.com/YashKumar-Pal/Scrap2cash]
 2 Open in Android Studio
 3 Run on emulator or device
 
